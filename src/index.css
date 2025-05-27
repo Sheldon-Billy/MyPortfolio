@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+  color: white;
+}
+
+@layer utilities{
+  @keyframes loading {
+    0%{
+      transform: translateX(0%);
+    }
+    100%{
+      transform: translateX(232%);
+    }
+  }
+
+  .animate-loading-bar{
+    animation: loading  0.9s ease infinite;
+  }
+}
