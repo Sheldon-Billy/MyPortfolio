@@ -3,12 +3,26 @@
 body{
   margin: 0;
   padding: 0;
-  background-color: #0a0a0a;
+  background-color: #020119;
   color: white;
 }
 
 @layer utilities{
 
+  @keyframes spin-slow {
+      from {
+        transform: rotate(0deg);
+      }
+  
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  
+    .animate-spin-slow {
+      animation: spin-slow 3s linear infinite;
+    }
+    
   @keyframes blink{
       0%,100% {
         opacity: 1;

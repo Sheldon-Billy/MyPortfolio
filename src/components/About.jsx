@@ -17,7 +17,7 @@ const About = () => {
             About me
           </h2>
 
-          <div className="rounded-2xl p-8 border-white/10 border hover:-translate-y-1 transition-all">
+          <div className="rounded-2xl p-8  border-[#7c7c7c] border-1 hover:-translate-y-1 transition-all">
             <p className="text-gray-300 mb-8 text-center">
               I am passionate about leveraging the power of technology to create
               impactful and intelligent solutions that address real-world
@@ -29,7 +29,7 @@ const About = () => {
             {/* frontend skills */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="rounded-xl hover:-translate-y-1 transition-all">
-                <h3 className="text-xl font-bold mb-4">Frontend</h3>
+                <h3 className="text-xl font-bold mb-4">Frontend 🖥️</h3>
                 <div className="flex flex-wrap gap-2">
                   {frontendSkills.map((tech, key) => (
                     <span
@@ -43,7 +43,7 @@ const About = () => {
               </div>
               {/* backend skills */}
               <div className="rounded-xl hover:-translate-y-1 transition-all">
-                <h3 className="text-xl font-bold mb-4">Backend</h3>
+                <h3 className="text-xl font-bold mb-4">Backend 🗄️ </h3>
                 <div className="flex flex-wrap gap-2">
                   {backendSkills.map((tech, key) => (
                     <span
@@ -59,12 +59,20 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            <div className="p-6 rounded-xl border-white/10 border hover:-translate-y-1 transition-all">
-              <h3 className="text-xl font-bold mb-4"> 📚 Education </h3>
+            <div className="p-6 rounded-xl border-[#a2a2a2] border hover:-translate-y-1 transition-all">
+              <h3 className="text-xl font-bold mb-4 "> 📚 Education </h3>
               <ul className=" text-gray-300 space-y-2">
                 <li>
-                  <strong> 🎓 B.S. in Information Technology </strong> -
-                  Multimedia UNiversity of Kenya University (2022 - OnGoing)
+                  <strong className="text-[#6666d9]">
+                    {" "}
+                    🎓 B.S. in Information Technology{" "}
+                  </strong>{" "}
+                  -
+                  <span className="text-[#d5d5ff]">
+                    {" "}
+                    Multimedia UNiversity of Kenya University
+                  </span>{" "}
+                  (2022 - OnGoing)
                 </li>
                 <li>
                   Relevant Coursework: <br /> ✨ Data Structures <br /> ✨ Web
@@ -72,45 +80,46 @@ const About = () => {
                   <br /> ✨ DBMS <br /> ✨ AI & ML Intergration
                 </li>
                 <li>
-                  <strong> 🎓 K.C.S.E</strong> - Kanyawanga High Scool (2018 -
-                  2022)
+                  <strong className="text-[#6666d9]"> 🎓 K.C.S.E</strong> -
+                  Kanyawanga High Scool (2018 - 2022)
                 </li>
                 <li>
-                  <strong> 🎓 K.C.P.E</strong> - Rongo Shinners Academy{" "}
+                  <strong className="text-[#6666d9]"> 🎓 K.C.P.E</strong> -
+                  Rongo Shinners Academy{" "}
                 </li>
               </ul>
             </div>
-            <div className="p-6 rounded-xl border-white/10 border hover:-translate-y-1 transition-all">
+            <div className="p-6 rounded-xl border-[#959595] border hover:-translate-y-1 transition-all">
               <h3 className="text-xl font-bold mb-4"> 💼 Work Experience </h3>
               <div className="space-y-4 text-gray-300">
                 <div>
-                  <h4 className="font-semibold"> Student (2022 - Present) </h4>
+                  <h4 className="font-semibold text-[#6666d9]">
+                    {" "}
+                    Student (2022 - Present){" "}
+                  </h4>
                   <p>
                     📌 Still working on Projects, comleting course works etc.
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold">
+                  <h4 className="font-semibold text-[#6666d9]">
                     {" "}
                     Attachee at Smart Touch Printers (2024 - 2 Months){" "}
                   </h4>
                   <p>
-                    📌 ssisted in building front-end components and integration
-                    REST APIs <br /> 📌 Assistend in Customer care and attenance{" "}
-                    <br /> 📌 Maintained and serviced Network cables in Sever
-                    room <br /> 📌 Created and configured Network Models
+                    📌 Front-end integration & REST APIs <br /> 📌 Customer care
+                    and attenance <br /> 📌 Network Configuration Models <br />{" "}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold">
+                  <h4 className="font-semibold text-[#6666d9]">
                     {" "}
                     Work Study Programme at MMU (2023 - Whole semester){" "}
                   </h4>
                   <p>
-                    📌 Maintained and serviced Network cables in Sever room{" "}
-                    <br /> 📌 Created and configured Network Models
+                    📌 Network Configuration <br /> 📌 IT Related Tasks assigned
                   </p>
                 </div>
               </div>
