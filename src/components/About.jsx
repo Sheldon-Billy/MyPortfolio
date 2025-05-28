@@ -71,9 +71,9 @@ const About = () => {
                   -
                   <span className="text-[#d5d5ff]">
                     {" "}
-                    Multimedia UNiversity of Kenya University [cite: 1]
+                    Multimedia UNiversity of Kenya University
                   </span>{" "}
-                  (2022 - OnGoing) [cite: 1]
+                  (2022 - OnGoing)
                 </li>
                 <li>
                   Relevant Coursework: <br /> ✨ Data Structures <br /> ✨ Web
@@ -120,8 +120,7 @@ const About = () => {
                     Work Study Programme at MMU (2023 - Whole semester){" "}
                   </h4>
                   <p>
-                    📌 Network Configuration [cite: 2] <br /> 📌 IT Related
-                    Tasks assigned [cite: 2]
+                    📌 Network Configuration <br /> 📌 IT Related Tasks assigned
                   </p>
                 </div>
               </div>
