@@ -10,7 +10,7 @@ const Home = () => {
       className="min-h-screen flex items-center justify-center flex-col py-10" // Added py-10 for vertical padding
     >
       <RevealOnSroll>
-        <div className="text-center">
+        <div className="text-center mt-5">
           <img
             src={Sheldon}
             alt="Sheldon Billy"
