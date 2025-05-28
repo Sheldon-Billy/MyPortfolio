@@ -22,7 +22,7 @@ body{
     .animate-spin-slow {
       animation: spin-slow 3s linear infinite;
     }
-    
+
   @keyframes blink{
       0%,100% {
         opacity: 1;
@@ -48,7 +48,7 @@ body{
   }
 
   .animate-loading-bar{
-    animation: loading  4s ease infinite;
+    animation: loading  0.7s ease infinite;
   }
 }
 

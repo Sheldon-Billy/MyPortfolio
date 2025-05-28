@@ -1,5 +1,6 @@
 import React from "react";
 import RevealOnSroll from "./RevealOnSroll";
+import CV from "../assets/CV.pdf";
 
 const About = () => {
   const frontendSkills = ["React", "Tailwindcss", "HTML, CSS", "Type Script"];
@@ -9,7 +10,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center "
+      className="min-h-screen flex items-center justify-center py-20" // Added py-20 for consistent spacing
     >
       <RevealOnSroll>
         <div className="max-w-3xl mx-auto px-4 flex flex-col items-center justify-center">
@@ -70,9 +71,9 @@ const About = () => {
                   -
                   <span className="text-[#d5d5ff]">
                     {" "}
-                    Multimedia UNiversity of Kenya University
+                    Multimedia UNiversity of Kenya University [cite: 1]
                   </span>{" "}
-                  (2022 - OnGoing)
+                  (2022 - OnGoing) [cite: 1]
                 </li>
                 <li>
                   Relevant Coursework: <br /> ✨ Data Structures <br /> ✨ Web
@@ -119,12 +120,44 @@ const About = () => {
                     Work Study Programme at MMU (2023 - Whole semester){" "}
                   </h4>
                   <p>
-                    📌 Network Configuration <br /> 📌 IT Related Tasks assigned
+                    📌 Network Configuration [cite: 2] <br /> 📌 IT Related
+                    Tasks assigned [cite: 2]
                   </p>
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Download CV Section - Added at the bottom */}
+          <div className="mt-12 text-center">
+            <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">
+              Want to learn more?
+            </h3>
+            <a
+              href={CV}
+              download="Sheldon_Billy_CV.pdf" // This will suggest the download filename
+              className="inline-flex items-center bg-blue-600 text-white py-3 px-8 rounded-full font-medium transition-all duration-300
+                         hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:bg-blue-700
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75"
+            >
+              <svg
+                className="w-5 h-5 mr-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H5a2 2 0 01-2-2v-7a2 2 0 012-2h14a2 2 0 012 2v7a2 2 0 01-2 2z"
+                ></path>
+              </svg>
+              Download My CV
+            </a>
+          </div>
+          {/* End of Download CV Section */}
         </div>
       </RevealOnSroll>
     </section>

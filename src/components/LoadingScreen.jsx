@@ -17,16 +17,16 @@ const LoadingScreen = ({ onComplete }) => {
   return (
     // Container
     <div className="flex flex-col gap-5 inset-0 fixed items-center justify-center">
+      <h1 className="text-[30px]"> 🫵👋</h1>
       {/* loading text */}
-      <div className="lg:text-3xl sm:text-[10px] text-white ">
+      <div className="lg:text-3xl sm:text-[10px]  font-extrabold bg-gradient-to-r from-[#2a78e4] via-blue-300 to-[#e9b421] text-transparent bg-clip-text">
         <TypingEffect
-          text="Hi 👋, Happy to visit my portfolio..."
+          text="Hi, Happy to visit my portfolio..."
           onTypingComplete={() => setTypingComplete(true)} // Notify when typing is done
         />
 
         <span className="animate-blink text-blue-500 ">|</span>
       </div>
-
       {/* progress bar */}
       <div className="w-[350px] h-[2px] bg-gray-800 rounded-2xl overflow-hidden">
         <div className="bg-blue-500 shadow-[0_0_15px_blue] h-full w-[30%] animate-loading-bar "></div>
