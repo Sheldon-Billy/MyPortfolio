@@ -48,7 +48,7 @@ body{
   }
 
   .animate-loading-bar{
-    animation: loading  0.7s ease infinite;
+    animation: loading  4s ease infinite;
   }
 }
 
