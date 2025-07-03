@@ -21,10 +21,10 @@ const LoadingScreen = ({ onComplete }) => {
       <img
         src={Sheldon}
         alt="Sheldon Billy"
-        className="w-48 h-48 rounded-full object-cover border-4 border-blue-500 mx-auto  shadow-lg transition-transform duration-300 ease-in-out hover:scale-105"
+        className="w-30 h-30 rounded-full object-cover border-4 border-blue-500 mx-auto  shadow-lg transition-transform duration-300 ease-in-out hover:scale-105"
       />
       {/* loading text */}
-      <div className="lg:text-3xl sm:text-[10px]  font-extrabold bg-gradient-to-r from-[#2a78e4] via-blue-300 to-[blue] text-transparent bg-clip-text">
+      <div className="lg:text-3xl sm:text-[10px]  font-extrabold bg-gradient-to-r from-[#2a78e4] via-white to-[blue] text-transparent bg-clip-text">
         <TypingEffect
           text="Hi, Happy to visit my portfolio..."
           onTypingComplete={() => setTypingComplete(true)} // Notify when typing is done
