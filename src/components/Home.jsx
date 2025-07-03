@@ -17,11 +17,11 @@ const Home = () => {
             className="w-48 h-48 rounded-full object-cover border-4 border-blue-500 mx-auto mb-8 shadow-lg transition-transform duration-300 ease-in-out hover:scale-105"
           />
 
-          <h1 className="bg-gradient-to-r from-blue-600 via-blue-400 to-blue-800 text-transparent bg-clip-text lg:text-5xl font-extrabold sm:text-[14px] md:text-[17px] mb-5 font-serif ">
+          <h1 className="bg-gradient-to-r from-blue-600 via-blue-300 to-blue-800 text-transparent bg-clip-text lg:text-5xl font-extrabold sm:text-[14px] md:text-[17px] mb-5 font-serif ">
             Hi again, I'm Sheldon Billy.
           </h1>
 
-          <p className="mx-auto mb-8 max-w-lg sm:text-[14px] lg-text-[20px]">
+          <p className="mx-auto mb-8 max-w-lg sm:text-[14px] lg-text-[20px] text-white">
             I'm a developer who loves bringing ideas to life through code. I
             specialize in crafting intuitive user interfaces with React JS,
             Tailwind CSS, and JavaScript. My passion extends beyond the

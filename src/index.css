@@ -1,11 +1,36 @@
 @import "tailwindcss";
 
-body{
-  margin: 0;
-  padding: 0;
-  background-color: #020119;
-  color: white;
+body {
+    margin: 0;
+    height: 100vh;
+    color: rgb(0, 255, 0);
+    background: radial-gradient(circle at 40% 50%, #020119 30%, rgba(76, 29, 149, 0.7), rgba(168, 90, 217, 0.6));
+    background-size: 300% 300%;
+    animation: gradientMotion 30s ease infinite;
 }
+
+@keyframes gradientMotion {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    25% {
+        background-position: 50% 100%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    75% {
+        background-position: 50% 0%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 @layer utilities{
 
