@@ -1,34 +1,38 @@
 @import "tailwindcss";
 
 body {
-    margin: 0;
-    height: 100vh;
-    color: rgb(0, 255, 0);
-    background: radial-gradient(circle at 40% 50%, #020119 30%, rgba(76, 29, 149, 0.7), rgba(168, 90, 217, 0.6));
-    background-size: 300% 300%;
-    animation: gradientMotion 30s ease infinite;
+  margin: 0;
+  min-height: 100vh;
+  color: rgb(0, 255, 0);
+  /* Keeping your neon text color */
+  background: radial-gradient(circle at center,
+      #040117 0%,
+      /* Deep space blue (center) */
+      #060425 30%,
+      /* Rich dark blue (middle spread) */
+      #120c45 60%,
+      /* Slightly lighter blue */
+      rgba(7, 3, 41, 0.3) 100%
+      /* Faded outer edge */
+    );
+  background-attachment: fixed;
+  background-size: 200% 200%;
+  animation: bluePulse 30s ease infinite;
 }
 
-@keyframes gradientMotion {
-    0% {
-        background-position: 0% 50%;
-    }
+@keyframes bluePulse {
 
-    25% {
-        background-position: 50% 100%;
-    }
+  0%,
+  100% {
+    background-position: 0% 0%;
+    background-size: 200% 200%;
+  }
 
-    50% {
-        background-position: 100% 50%;
-    }
-
-    75% {
-        background-position: 50% 0%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+  50% {
+    background-position: 100% 100%;
+    background-size: 220% 220%;
+    /* Subtle zoom effect */
+  }
 }
 
 
@@ -86,4 +90,56 @@ body {
 .reveal.visible{
   opacity: 1;
   transform: translateY(0) ;
+}
+
+
+
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  25% {
+    transform: translateY(-20vh) translateX(10vw);
+  }
+
+  50% {
+    transform: translateY(10vh) translateX(-15vw);
+  }
+
+  75% {
+    transform: translateY(-15vh) translateX(5vw);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2s ease-out infinite;
 }

@@ -1,84 +1,118 @@
 import { FaLaptopCode, FaReact } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("home");
+
+  // Detect hash changes for active link highlighting
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1) || "home";
+      setActiveLink(hash);
+    };
+
+    // Set initial active link
+    handleHashChange();
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const navLinks = [
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "projects", label: "Projects" },
+    { id: "contact", label: "Contact" },
+  ];
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      window.location.hash = id;
+      setMenuOpen(false);
+    }
+  };
 
   return (
-    <nav className="fixed top-0 w-full z-40 backdrop-blur-2xl shadow-lg sm:text-[10px] md:text-[15px] lg:text-[17px]">
-      <div className="px-4 mx-auto max-w-5xl border-b-2 border-[#9e9e9e] ">
-        <div className="flex justify-between items-center h-16">
-          <a
-            href="#home"
-            className="flex items-center gap-2 hover:underline hover:text-blue-500"
+    <nav className="fixed top-0 w-full z-50 bg-[#0a081a]/90 backdrop-blur-md border-b border-gray-800/50">
+      <div className="px-6 mx-auto max-w-7xl">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo/Brand */}
+          <div
+            className="flex items-center cursor-pointer"
+            onClick={() => scrollToSection("home")}
           >
-            <FaLaptopCode className="text-blue-600 text-xl" />
-            <span className="font-bold">Hammattan</span>
-            <span className="text-blue-600 text-2xl font-[cursive]">.tech</span>
-            <FaReact className="ml-2 text-cyan-400 text-xl animate-spin-slow" />
-          </a>
-          {/* Hamburger Icon */}
+            <FaLaptopCode className="text-blue-500 text-xl" />
+            <span className="ml-2 font-bold text-white">Hammattan</span>
+            <span className="text-blue-500 text-2xl font-[cursive]">.tech</span>
+            <FaReact className="ml-2 text-cyan-400 text-xl animate-[spin_8s_linear_infinite]" />
+          </div>
+
+          {/* Desktop Navigation */}
+          <ul className="hidden lg:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <li key={link.id}>
+                <button
+                  onClick={() => scrollToSection(link.id)}
+                  className={`relative px-1 py-2 text-sm font-medium transition-colors duration-300 ${activeLink === link.id
+                    ? "text-blue-400"
+                    : "text-gray-300 hover:text-blue-300"
+                    }`}
+                >
+                  {link.label}
+                  {activeLink === link.id && (
+                    <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-500 rounded-full animate-[pulse_1.5s_ease-in-out_infinite]" />
+                  )}
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          {/* Mobile Menu Button */}
           <button
-            className="lg:hidden flex flex-col justify-center items-center w-8 h-8"
+            className="lg:hidden flex flex-col justify-center items-center w-8 h-8 group"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
             <span
-              className={`block h-1 w-6 bg-gray-400 rounded transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            ></span>
+              className={`block h-0.5 w-6 bg-gray-300 rounded-full transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-1.5" : ""
+                } group-hover:bg-blue-400`}
+            />
             <span
-              className={`block h-1 w-6 bg-gray-400 rounded my-1 transition-all duration-300 ${
-                menuOpen ? "opacity-0" : ""
-              }`}
-            ></span>
+              className={`block h-0.5 w-6 bg-gray-300 rounded-full my-1.5 transition-all duration-300 ${menuOpen ? "opacity-0" : ""
+                } group-hover:bg-blue-400`}
+            />
             <span
-              className={`block h-1 w-6 bg-gray-400 rounded transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            ></span>
+              className={`block h-0.5 w-6 bg-gray-300 rounded-full transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""
+                } group-hover:bg-blue-400`}
+            />
           </button>
-          {/* Desktop Menu */}
-          <ul className="hidden lg:flex lg:gap-5 text-gray-300 sm:gap-2 md:gap-3">
-            <li className="hover:text-blue-600 hover:underline transition-colors cursor-pointer">
-              <a href="#home">Home</a>
-            </li>
-            <li className="hover:text-blue-600 hover:underline transition-colors cursor-pointer">
-              <a href="#about">About</a>
-            </li>
-            <li className="hover:text-blue-600 hover:underline transition-colors cursor-pointer">
-              <a href="#projects">Projects</a>
-            </li>
-            <li className="hover:text-blue-600 hover:underline transition-colors cursor-pointer">
-              <a href="#contact">Contact</a>
-            </li>
-          </ul>
         </div>
+
         {/* Mobile Menu */}
         {menuOpen && (
-          <ul className="lg:hidden flex flex-col gap-3 py-4 text-gray-300 bg-[#18181b] rounded shadow-md animate-fade-in">
-            <li className="hover:text-blue-600 hover:underline transition-colors cursor-pointer">
-              <a href="#home" onClick={() => setMenuOpen(false)}>
-                Home
-              </a>
-            </li>
-            <li className="hover:text-blue-600 hover:underline transition-colors cursor-pointer">
-              <a href="#about" onClick={() => setMenuOpen(false)}>
-                About
-              </a>
-            </li>
-            <li className="hover:text-blue-600 hover:underline transition-colors cursor-pointer">
-              <a href="#projects" onClick={() => setMenuOpen(false)}>
-                Projects
-              </a>
-            </li>
-            <li className="hover:text-blue-600 hover:underline transition-colors cursor-pointer">
-              <a href="#contact" onClick={() => setMenuOpen(false)}>
-                Contact
-              </a>
-            </li>
-          </ul>
+          <div className="lg:hidden absolute top-16 left-0 right-0 bg-[#0a081a] border-t border-gray-800/50 shadow-xl animate-[fadeIn_0.3s_ease-out]">
+            <ul className="flex flex-col py-3 px-4">
+              {navLinks.map((link) => (
+                <li key={link.id} className="border-b border-gray-800/50 last:border-0">
+                  <button
+                    onClick={() => scrollToSection(link.id)}
+                    className={`w-full text-left px-4 py-3 text-sm font-medium transition-colors duration-200 flex items-center ${activeLink === link.id
+                      ? "text-blue-400 bg-blue-900/20"
+                      : "text-gray-300 hover:text-blue-300"
+                      }`}
+                  >
+                    {link.label}
+                    {activeLink === link.id && (
+                      <span className="ml-2 w-2 h-2 bg-blue-400 rounded-full animate-[pulse_1.5s_ease-in-out_infinite]" />
+                    )}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
     </nav>
