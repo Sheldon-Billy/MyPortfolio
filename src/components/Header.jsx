@@ -46,7 +46,7 @@ const Header = () => {
           >
             <FaLaptopCode className="text-blue-500 text-xl" />
             <span className="ml-2 font-bold text-white">Hammattan</span>
-            <span className="text-blue-500 text-2xl font-mono">.tech</span>
+            <span className="text-blue-500 text-2xl font-[cursive]">.tech</span>
             <FaReact className="ml-2 text-cyan-400 text-xl animate-[spin_8s_linear_infinite]" />
           </div>
 
