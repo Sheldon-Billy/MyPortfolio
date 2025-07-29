@@ -74,7 +74,7 @@ const Home = () => {
             MongoDB.
           </p>
 
-          {/* Buttons with improved hover effects */}
+          /* Buttons with improved hover effects */
           <div className="absolute bottom-30 left-140 flex gap-4">
             <a
               href="#projects"
@@ -93,24 +93,130 @@ const Home = () => {
               <span className="absolute inset-0 border-2 border-transparent group-hover:border-blue-300 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-lg -z-20" />
             </a>
           </div>
-          <div className='absolute top-37 right-24 flex flex-col '>
 
-            <h1 className='absolute right-15 w-40 font-extrabold '>Quick Acess</h1>
 
-            <button className='border-[blue] border rounded-[20px] p-1 w-50 shadow-[0_4px_10px_blue] absolute right-15 top-10 hover:scale-120 hover:shadow-[0_0_50px_blue] duration-100 '>My Projects</button>
-            <button className='border-[blue] border rounded-[20px] p-1 w-50 shadow-[0_4px_10px_blue] absolute hover:scale-120 right-10 top-20 hover:shadow-[0_0_50px_blue] '>Pricing</button>
-            <button className='border-[blue] border rounded-[20px] p-1 w-50 shadow-[0_4px_10px_blue] absolute right-5 top-30 hover:scale-120 hover:shadow-[0_0_50px_blue]  duration-100'>Contact Sales</button>
-            <button className='border-[blue] border rounded-[20px] p-1 w-50 shadow-[0_4px_10px_blue] absolute right-0 top-40 hover:scale-120 hover:shadow-[0_0_50px_blue]  duration-100'>Consultants & Agencis</button>
-            <button className='border-[blue] border rounded-[20px] p-1 w-50 shadow-[0_4px_10px_blue] absolute right-5 top-50 hover:scale-120 hover:shadow-[0_0_50px_blue]  duration-100'>Connect Me</button>
-            <button className='border-[blue] border rounded-[20px] p-1 w-50 shadow-[0_4px_10px_blue] absolute right-10 top-60 hover:scale-120 hover:shadow-[0_0_50px_blue]  duration-100'>Support us</button>
-            <button className='border-[blue] border rounded-[20px] p-1 w-50 shadow-[0_4px_10px_blue] absolute right-15 top-70 hover:scale-120 hover:shadow-[0_0_50px_blue]  duration-100'>Reviews</button>
 
+          <div className='absolute top-37 right-24 flex flex-col'>
+            <h1 className='absolute right-15 w-40 font-extrabold text-blue-300'>Quick Access</h1>
+
+            <button className='absolute right-15 top-10 border-2 border-blue-400 rounded-xl px-4 py-2 w-50 text-blue-100 font-medium shadow-[0_0_15px_#3b82f6] hover:shadow-[0_0_25px_#3b82f6] hover:text-white hover:border-blue-300 transition-all duration-150 bg-[#0a081a]/80 ackdrop-blur-sm hover:scale-110 hover:rotate-1 group'>
+
+              <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
+                My Projects
+              </span>
+            </button>
+
+            <button className='
+    absolute right-10 top-20
+    border-2 border-blue-400 rounded-xl px-4 py-2 w-50
+    text-blue-100 font-medium
+    shadow-[0_0_15px_#3b82f6]
+    hover:shadow-[0_0_25px_#3b82f6]
+    hover:text-white
+    hover:border-blue-300
+    transition-all duration-150
+    bg-[#0a081a]/80 backdrop-blur-sm
+    hover:scale-110 hover:rotate-1
+    group
+  '>
+              <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
+                Pricing
+              </span>
+            </button>
+
+            <button className='
+    absolute right-5 top-30
+    border-2 border-blue-400 rounded-xl px-4 py-2 w-50
+    text-blue-100 font-medium
+    shadow-[0_0_15px_#3b82f6]
+    hover:shadow-[0_0_25px_#3b82f6]
+    hover:text-white
+    hover:border-blue-300
+    transition-all duration-150
+    bg-[#0a081a]/80 backdrop-blur-sm
+    hover:scale-110 hover:rotate-1
+    group
+  '>
+              <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
+                Contact Sales
+              </span>
+            </button>
+
+            <button className='
+    absolute right-0 top-40
+    border-2 border-blue-400 rounded-xl px-4 py-2 w-50
+    text-blue-100 font-medium
+    shadow-[0_0_15px_#3b82f6]
+    hover:shadow-[0_0_25px_#3b82f6]
+    hover:text-white
+    hover:border-blue-300
+    transition-all duration-150
+    bg-[#0a081a]/80 backdrop-blur-sm
+    hover:scale-110 hover:rotate-1
+    group
+  '>
+              <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
+                Consultants
+              </span>
+            </button>
+
+            <button className='
+    absolute right-5 top-50
+    border-2 border-blue-400 rounded-xl px-4 py-2 w-50
+    text-blue-100 font-medium
+    shadow-[0_0_15px_#3b82f6]
+    hover:shadow-[0_0_25px_#3b82f6]
+    hover:text-white
+    hover:border-blue-300
+    transition-all duration-150
+    bg-[#0a081a]/80 backdrop-blur-sm
+    hover:scale-110 hover:rotate-1
+    group
+  '>
+              <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
+                Connect Me
+              </span>
+            </button>
+
+            <button className='
+    absolute right-10 top-60
+    border-2 border-blue-400 rounded-xl px-4 py-2 w-50
+    text-blue-100 font-medium
+    shadow-[0_0_15px_#3b82f6]
+    hover:shadow-[0_0_25px_#3b82f6]
+    hover:text-white
+    hover:border-blue-300
+    transition-all duration-150
+    bg-[#0a081a]/80 backdrop-blur-sm
+    hover:scale-110 hover:rotate-1
+    group
+  '>
+              <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
+                Support Us
+              </span>
+            </button>
+
+            <button className='
+    absolute right-15 top-70
+    border-2 border-blue-400 rounded-xl px-4 py-2 w-50
+    text-blue-100 font-medium
+    shadow-[0_0_15px_#3b82f6]
+    hover:shadow-[0_0_25px_#3b82f6]
+    hover:text-white
+    hover:border-blue-300
+    transition-all duration-150
+    bg-[#0a081a]/80 backdrop-blur-sm
+    hover:scale-110 hover:rotate-1
+    group
+  '>
+              <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
+                Reviews
+              </span>
+            </button>
           </div>
 
         </div>
       </RevealOnSroll>
-
-      {/* Animated scroll-down arrow with gradient */}
       <div className="mt-10 z-10 absolute bottom-0 left-180">
         <img
           src={down}
