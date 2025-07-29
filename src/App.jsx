@@ -7,6 +7,7 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./assets/Footer";
+import Testimonials from "./components/Testimonials";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -15,14 +16,14 @@ function App() {
       {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
 
       <div
-        className={`min-h-screen transition-opacity duration-700 ${
-          isLoaded ? "opacity-100" : "opacity-0"
-        }`}
+        className={`min-h-screen transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"
+          }`}
       >
         <Header />
         <Home />
         <About />
         <Projects />
+        <Testimonials />
         <Contact />
         <Footer />
       </div>

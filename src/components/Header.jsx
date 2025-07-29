@@ -23,7 +23,9 @@ const Header = () => {
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "projects", label: "Projects" },
+    { id: "testimonials", label: "Testimonials" },
     { id: "contact", label: "Contact" },
+
   ];
 
   const scrollToSection = (id) => {
