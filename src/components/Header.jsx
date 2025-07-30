@@ -47,7 +47,7 @@ const Header = () => {
             onClick={() => scrollToSection("home")}
           >
             <FaLaptopCode className="text-blue-500 text-xl" />
-            <span className="ml-2 font-bold text-white">Hammattan</span>
+            <span className="ml-2 font-bold text-[#00ff00]">Hammattan</span>
             <span className="text-blue-500 text-2xl font-[cursive]">.tech</span>
             <FaReact className="ml-2 text-cyan-400 text-xl animate-[spin_8s_linear_infinite]" />
           </div>
@@ -58,9 +58,9 @@ const Header = () => {
               <li key={link.id}>
                 <button
                   onClick={() => scrollToSection(link.id)}
-                  className={`relative px-1 py-2 text-sm font-medium transition-colors duration-300 ${activeLink === link.id
+                  className={`cursor-pointer hover:scale-120 relative px-1 py-2 text-sm font-medium transition-colors duration-300 ${activeLink === link.id
                     ? "text-blue-400"
-                    : "text-gray-300 hover:text-blue-300"
+                    : "text-gray-300 hover:text-[green]"
                     }`}
                 >
                   {link.label}

@@ -99,7 +99,7 @@ const Home = () => {
           <div className='absolute top-37 right-24 flex flex-col'>
             <h1 className='absolute right-15 w-40 font-extrabold text-blue-300'>Quick Access</h1>
 
-            <button className='absolute right-15 top-10 border-2 border-blue-400 rounded-xl px-4 py-2 w-50 text-blue-100 font-medium shadow-[0_0_15px_#3b82f6] hover:shadow-[0_0_25px_#3b82f6] hover:text-white hover:border-blue-300 transition-all duration-150 bg-[#0a081a]/80 ackdrop-blur-sm hover:scale-110 hover:rotate-1 group'>
+            <button className='absolute right-15 top-10 border-2 border-blue-400 rounded-xl px-4 py-2 w-50 text-blue-100 font-medium shadow-[0_0_15px_#3b82f6] hover:shadow-[0_0_25px_#3b82f6] hover:text-white hover:border-blue-300 transition-all duration-150 bg-[#0a081a]/80 ackdrop-blur-sm hover:scale-110 hover:rotate-1 cursor-pointer group'>
 
               <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
                 My Projects
@@ -116,7 +116,7 @@ const Home = () => {
     hover:border-blue-300
     transition-all duration-150
     bg-[#0a081a]/80 backdrop-blur-sm
-    hover:scale-110 hover:rotate-1
+    hover:scale-110 hover:rotate-1 cursor-pointer
     group
   '>
               <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
@@ -134,7 +134,7 @@ const Home = () => {
     hover:border-blue-300
     transition-all duration-150
     bg-[#0a081a]/80 backdrop-blur-sm
-    hover:scale-110 hover:rotate-1
+    hover:scale-110 hover:rotate-1 cursor-pointer
     group
   '>
               <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
@@ -152,7 +152,7 @@ const Home = () => {
     hover:border-blue-300
     transition-all duration-150
     bg-[#0a081a]/80 backdrop-blur-sm
-    hover:scale-110 hover:rotate-1
+    hover:scale-110 hover:rotate-1 cursor-pointer
     group
   '>
               <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
@@ -170,7 +170,7 @@ const Home = () => {
     hover:border-blue-300
     transition-all duration-150
     bg-[#0a081a]/80 backdrop-blur-sm
-    hover:scale-110 hover:rotate-1
+    hover:scale-110 hover:rotate-1 cursor-pointer
     group
   '>
               <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
@@ -188,7 +188,7 @@ const Home = () => {
     hover:border-blue-300
     transition-all duration-150
     bg-[#0a081a]/80 backdrop-blur-sm
-    hover:scale-110 hover:rotate-1
+    hover:scale-110 hover:rotate-1 cursor-pointer
     group
   '>
               <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
@@ -206,7 +206,7 @@ const Home = () => {
     hover:border-blue-300
     transition-all duration-150
     bg-[#0a081a]/80 backdrop-blur-sm
-    hover:scale-110 hover:rotate-1
+    hover:scale-110 hover:rotate-1 cursor-pointer
     group
   '>
               <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
