@@ -47,7 +47,7 @@ const Header = () => {
             onClick={() => scrollToSection("home")}
           >
             <FaLaptopCode className="text-blue-500 text-xl" />
-            <span className="ml-2 font-bold text-[#00ff00]">Hammattan</span>
+            <span className="ml-2 font-bold text-[#00ff00] md:text-2xl sm:text-[10px]">Hammattan</span>
             <span className="text-blue-500 text-2xl font-[cursive]">.tech</span>
             <FaReact className="ml-2 text-cyan-400 text-xl animate-[spin_8s_linear_infinite]" />
           </div>
