@@ -48,6 +48,7 @@ const Home = () => {
 
       <RevealOnSroll>
         <div className="relative mt-5 h-screen">
+
           {/* Profile image with glow effect on hover */}
           <div className="absolute left-30 top-40 group mx-auto w-48 h-80 mb-8">
 
@@ -73,6 +74,8 @@ const Home = () => {
             and Express JS, and efficient data management using PostgreSQL and
             MongoDB.
           </p>
+
+
 
           /* Buttons with improved hover effects */
           <div className="absolute bottom-30 left-140 flex gap-4">

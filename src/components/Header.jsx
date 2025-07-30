@@ -58,9 +58,9 @@ const Header = () => {
               <li key={link.id}>
                 <button
                   onClick={() => scrollToSection(link.id)}
-                  className={`cursor-pointer hover:scale-120 relative px-1 py-2 text-sm font-medium transition-colors duration-300 ${activeLink === link.id
+                  className={`cursor-pointer hover:scale-120 relative px-1 py-2 text-sm font-medium transition-colors duration-200 ${activeLink === link.id
                     ? "text-blue-400"
-                    : "text-gray-300 hover:text-[green]"
+                    : "text-gray-300 hover:text-[#b4df4e]"
                     }`}
                 >
                   {link.label}
