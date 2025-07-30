@@ -50,13 +50,13 @@ const Home = () => {
         <div className="relative mt-5 h-screen">
 
           {/* Profile image with glow effect on hover */}
-          <div className="absolute left-30 top-40 group mx-auto w-48 h-80 mb-8">
+          <div className="absolute md:left-30 md:top-40 sm:top-10 group mx-auto w-48 h-80 mb-8 sm:left-0">
 
 
             <img
               src={Sheldon}
               alt="Sheldon Billy"
-              className="w-full h-full rounded-[30px] object-cover border-2 border-blue-500 shadow-lg transition-all duration-500 ease-in-out  group-hover:shadow-[0_0_20px_#3b82f6]"
+              className="md:size-80 rounded-[30px]  object-cover border-2 border-blue-500 shadow-lg transition-all duration-500 ease-in-out  group-hover:shadow-[0_0_20px_#3b82f6]"
             />
             {/* Subtle outer ring animation */}
             <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-blue-300 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out -z-10 animate-ping-slow" />
