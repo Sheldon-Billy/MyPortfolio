@@ -50,23 +50,25 @@ const Home = () => {
         <div className="relative mt-5 h-screen">
 
           {/* Profile image with glow effect on hover */}
-          <div className="absolute md:left-30 md:top-40 sm:top-10 group mx-auto w-48 h-80 mb-8 sm:left-0">
+          <div className=" absolute md:left-30 md:top-40  w-48 h-80  ">
 
 
             <img
               src={Sheldon}
               alt="Sheldon Billy"
-              className="md:size-80 rounded-[30px]  object-cover border-2 border-blue-500 shadow-lg transition-all duration-500 ease-in-out  group-hover:shadow-[0_0_20px_#3b82f6]"
+              className="md:size-80  rounded-[30px]  object-cover border-2 border-blue-500 shadow-lg transition-all duration-500 ease-in-out  group-hover:shadow-[0_0_20px_#3b82f6]"
             />
             {/* Subtle outer ring animation */}
             <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-blue-300 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out -z-10 animate-ping-slow" />
           </div>
 
-          <h1 className="absolute top-40 left-90 bg-gradient-to-r from-blue-600 via-blue-200 to-blue-800 text-transparent bg-clip-text lg:text-5xl font-extrabold sm:text-4xl md:text-5xl mb-5 font-serif tracking-tight">
-            Hi, I'm Sheldon Billy.
-          </h1>
+          <div>
+            <h1 className="absolute md:top-40 sm:top-1000 left-90 bg-gradient-to-r from-blue-600 via-blue-200 to-blue-800 text-transparent bg-clip-text font-extrabold text-5xl mb-5 font-serif ">
+              Hi, I'm Sheldon Billy.
+            </h1>
+          </div>
 
-          <p className=" absolute top-60 left-90 mx-auto mb-8 max-w-lg sm:text-base md:text-lg text-blue-100 leading-relaxed">
+          <p className=" absolute top-60 left-90 md:w-lg sm:w-30 text-lg text-blue-100 leading-relaxed">
             I'm a developer who loves bringing ideas to life through code. I
             specialize in crafting intuitive user interfaces with React JS,
             Tailwind CSS, and JavaScript. My passion extends beyond the
@@ -75,9 +77,6 @@ const Home = () => {
             MongoDB.
           </p>
 
-
-
-          /* Buttons with improved hover effects */
           <div className="absolute bottom-30 left-140 flex gap-4">
             <a
               href="#projects"

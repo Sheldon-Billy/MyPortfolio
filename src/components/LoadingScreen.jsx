@@ -17,14 +17,14 @@ const LoadingScreen = ({ onComplete }) => {
 
   return (
     // Container
-    <div className="flex flex-col gap-5 inset-0 fixed items-center justify-center">
+    <div className="flex flex-col gap-4 items-center justify-center h-screen">
       <img
         src={Sheldon}
         alt="Sheldon Billy"
-        className="w-30 h-30 rounded-full object-cover border-4 border-blue-500 mx-auto  shadow-lg transition-transform duration-300 ease-in-out hover:scale-105"
+        className="w-30 h-30 rounded-full object-cover border-4 border-blue-500 shadow-lg transition-transform duration-300 ease-in-out hover:scale-105"
       />
       {/* loading text */}
-      <div className="lg:text-3xl sm:text-[10px]  font-extrabold bg-gradient-to-r from-[#2a78e4] via-white to-[blue] text-transparent bg-clip-text">
+      <div className="sm:text-[20px] md:text-[30px] font-extrabold bg-gradient-to-r from-[#2a78e4] via-white to-[blue] text-transparent bg-clip-text">
         <TypingEffect
           text="Hi, Happy to visit my portfolio..."
           onTypingComplete={() => setTypingComplete(true)} // Notify when typing is done
