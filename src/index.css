@@ -115,3 +115,30 @@ body {
   }
 }
 
+@keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes infinite-scroll-reverse {
+    0% {
+      transform: translateX(-50%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-infinite-scroll {
+    animation: infinite-scroll 60s linear infinite;
+  }
+
+  .animate-infinite-scroll-reverse {
+    animation: infinite-scroll-reverse 25s linear infinite;
+  }

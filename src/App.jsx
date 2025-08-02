@@ -8,6 +8,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./assets/Footer";
 import Testimonials from "./components/Testimonials";
+import Certifications from "./components/Certifications";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -23,6 +24,7 @@ function App() {
         <Home />
         <About />
         <Projects />
+        <Certifications />
         <Testimonials />
         <Contact />
         <Footer />
