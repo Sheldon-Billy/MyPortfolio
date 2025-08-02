@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import RevealOnScroll from "./RevealOnSroll";
-import { Sheldon } from "../assets/Pics";
+import { Babe, Comfortine, Esther, Leon, Me, Sheldon, Simo } from "../assets/Pics";
 
 const Testimonials = () => {
     const testimonials = [
@@ -35,7 +35,7 @@ const Testimonials = () => {
             emoji: "🚀",
             likes: "18",
             retweets: "3",
-            avatar: "https://randomuser.me/api/portraits/men/22.jpg",
+            avatar: Leon,
         },
         {
             id: 4,
@@ -107,58 +107,164 @@ const Testimonials = () => {
                     {/* Main content with responsive layout */}
                     <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
                         {/* Left column - Process steps (hidden on mobile) */}
-                        <div className="hidden lg:block lg:w-1/4 xl:w-1/5 space-y-6">
+                        <div className="lg:block lg:w-1/4 xl:w-1/5 space-y-6 shadow-[0_0_30px_blue]">
                             {[
                                 {
-                                    name: "Tech Leaders Inc.",
+                                    name: "Data Analist Leaders Inc.",
+                                    jina: "Christine Kerubo",
                                     role: "Primary Supporter",
-                                    avatar: Sheldon,
-                                    quote: "Believed in my vision from day one"
+                                    avatar: Babe,
+                                    quote: "Believed in my vision from day one",
+                                    stats: { likes: "42k", retweets: "12k", shares: "8k", replies: "5k" }
                                 },
                                 {
                                     name: "OpenAI Community",
+                                    jina: "Comfortine Siwende",
                                     role: "Technical Advisors",
-                                    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-                                    quote: "Provided invaluable AI guidance"
+                                    avatar: Comfortine,
+                                    quote: "Provided invaluable AI guidance",
+                                    stats: { likes: "38k", retweets: "15k", shares: "6k", replies: "3k" }
                                 },
                                 {
                                     name: "Dev Mentors Group",
+                                    jina: "Melvin Simon",
                                     role: "Career Supporters",
-                                    avatar: "https://randomuser.me/api/portraits/men/22.jpg",
-                                    quote: "Helped shape my developer journey"
+                                    avatar: Simo,
+                                    quote: "Helped shape my developer journey",
+                                    stats: { likes: "56k", retweets: "18k", shares: "9k", replies: "7k" }
                                 },
                                 {
-                                    name: "Local Tech Hub",
+                                    name: "Data Enthusiast",
+                                    jina: "Esther Wangui",
                                     role: "Early Backers",
-                                    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-                                    quote: "First to test my prototypes"
+                                    avatar: Esther,
+                                    quote: "First to test my prototypes",
+                                    stats: { likes: "129k", retweets: "7k", shares: "4k", replies: "2k" }
                                 }
                             ].map((supporter, index) => (
                                 <div
                                     key={index}
-                                    className="bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-xl p-4 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-300"
+                                    className="bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-xl p-4 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-300 group"
                                 >
+                                    {/* Profile Section */}
                                     <div className="flex items-center gap-3 mb-3">
                                         <img
                                             src={supporter.avatar}
                                             alt={supporter.name}
-                                            className="w-10 h-10 rounded-full object-cover border border-blue-500"
+                                            className="w-25 h-20 rounded-full object-cover border border-blue-500 transition-transform duration-500 group-hover:rotate-3"
                                         />
                                         <div>
-                                            <h3 className="text-lg font-bold text-[#0aff0a]">{supporter.name}</h3>
+                                            <h3 className="text-lg font-bold text-[#0aff0a] group-hover:text-white transition-colors duration-300">
+                                                {supporter.name}
+                                            </h3>
+                                            <p className="text-blue-400 text-xs">{supporter.jina}</p>
                                             <p className="text-blue-400 text-xs">{supporter.role}</p>
                                         </div>
                                     </div>
-                                    <p className="text-blue-100 text-sm italic">"{supporter.quote}"</p>
+
+                                    {/* Scrolling Quote */}
+                                    <div className="relative overflow-hidden mb-3 h-8">
+                                        <div className="flex w-max animate-scroll-quote">
+                                            <p className="text-blue-100 text-sm italic whitespace-nowrap pr-8">
+                                                "{supporter.quote}" • "{supporter.quote}" •
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Interactive Social Stats */}
+                                    <div className="flex justify-between text-xs border-t border-blue-500/30 pt-3">
+                                        {/* Like */}
+                                        <button className="social-btn hover:text-red-400" aria-label="Like">
+                                            <span className="emoji animate-heartbeat">❤️</span>
+                                            <span>{supporter.stats.likes}</span>
+                                        </button>
+
+                                        {/* Retweet */}
+                                        <button className="social-btn hover:text-green-400" aria-label="Retweet">
+                                            <span className="emoji animate-spin-slow">🔁</span>
+                                            <span>{supporter.stats.retweets}</span>
+                                        </button>
+
+                                        {/* Share */}
+                                        <button className="social-btn hover:text-blue-300" aria-label="Share">
+                                            <span className="emoji animate-bounce-slow">📤</span>
+                                            <span>{supporter.stats.shares}</span>
+                                        </button>
+
+                                        {/* Reply */}
+                                        <button className="social-btn hover:text-yellow-300" aria-label="Reply">
+                                            <span className="emoji animate-wiggle">💬</span>
+                                            <span>{supporter.stats.replies}</span>
+                                        </button>
+                                    </div>
                                 </div>
                             ))}
                         </div>
 
+                        <style jsx global>{`
+  /* Scrolling Animation */
+  @keyframes scroll-quote {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-scroll-quote {
+    animation: scroll-quote 15s linear infinite;
+  }
+
+  /* Emoji Animations */
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(0.9); }
+    75% { transform: scale(1.05); }
+  }
+  .animate-heartbeat {
+    animation: heartbeat 1.5s infinite;
+  }
+
+  @keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+    display: inline-block;
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  .animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+  }
+  .animate-wiggle {
+    animation: wiggle 1s ease-in-out infinite;
+  }
+
+  /* Interactive Styles */
+  .social-btn {
+    @apply flex items-center gap-1 text-blue-300 transition-all duration-300;
+  }
+  .social-btn:hover .emoji {
+    filter: drop-shadow(0 0 6px currentColor);
+  }
+  .social-btn:active .emoji {
+    transform: scale(0.9);
+  }
+`}</style>
+
                         {/* Right column - Testimonials */}
-                        <div className="w-full lg:w-3/4 xl:w-4/5">
+                        <div className="w-full lg:w-3/4 xl:w-4/5 ">
                             <div
                                 ref={containerRef}
-                                className="relative h-[400px] md:h-[600px] overflow-hidden shadow-[0_0_20px_rgba(59,130,246,0.3)] rounded-xl"
+                                className="relative h-[400px] md:h-[735px] overflow-hidden shadow-[0_0_30px_blue] rounded-xl"
                             >
                                 <div
                                     ref={contentRef}

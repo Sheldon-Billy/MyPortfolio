@@ -11,5 +11,16 @@ import Cert2 from "./sololearn Python.png"
 import Cert3 from "./sololearn Ethical.png"
 import Cert4 from "./AI cert.png"
 import Cert5 from "./PyrhonDjango.png"
+import Me from "./me.jpeg"
+import Babe from "./Babe.jpeg"
+import Simo from "./Simo.jpeg"
+import Comfortine from "./Comfortine.jpeg"
+import Esther from "./Esther.jpeg"
+import Leon from "./Leon.jpeg"
+
+
+
+
 
 export { Badge1, Badge2, Badge3, Cert1, Cert2, Cert3, Cert4, Cert5, Aidriven, Aidriven2, Dermatology, down, Sheldon }
+export { Me, Comfortine, Babe, Simo, Esther, Leon }

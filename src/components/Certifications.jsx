@@ -16,7 +16,7 @@ const Certifications = () => {
             title: "Introduction to HTML",
             issuer: "Sololearn",
             image: Cert1,
-            date: "Jan 2024",
+            date: "Jan 12th 2024",
             credentialId: "CC-DP7V5LB4",
             link: "https://www.sololearn.com/certificates/CC-DP7V5LB4"
         },
@@ -24,7 +24,7 @@ const Certifications = () => {
             title: "Introduction to Python",
             issuer: "Sololearn",
             image: Cert2,
-            date: "Jan 2024",
+            date: "Jan 20th 2024",
             credentialId: "CC-BME39LYN",
             link: "https://www.sololearn.com/certificates/CC-BME39LYN"
         },
@@ -32,7 +32,7 @@ const Certifications = () => {
             title: "Certified Ethical Hacker",
             issuer: "Cisco Networking Academy",
             image: Cert3,
-            date: "2023",
+            date: "May 14th 2024",
             credentialId: "CEH-123456",
             link: "https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/"
         },
@@ -40,7 +40,7 @@ const Certifications = () => {
             title: "AI & Machine Learning Fundamentals",
             issuer: "Microsoft",
             image: Cert4,
-            date: "2023",
+            date: "Sep 12th 2024",
             credentialId: "AI-ML-7890",
             link: "https://learn.microsoft.com/en-us/certifications/exams/ai-900/"
         },
@@ -48,7 +48,7 @@ const Certifications = () => {
             title: "Advanced CSS Certification",
             issuer: "freeCodeCamp",
             image: Cert2,
-            date: "2023",
+            date: "Jan 30th 2024",
             credentialId: "CSS-2023",
             link: "https://www.freecodecamp.org/certification/"
         },
@@ -56,7 +56,7 @@ const Certifications = () => {
             title: "JavaScript Algorithms",
             issuer: "freeCodeCamp",
             image: Cert2,
-            date: "2023",
+            date: "Sep 12th 2024",
             credentialId: "JS-ALGO-2023",
             link: "https://www.freecodecamp.org/certification/"
         }

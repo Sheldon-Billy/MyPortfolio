@@ -8,6 +8,8 @@ const About = () => {
   const devOpsSkills = ["Docker", "AWS", "CI/CD", "Git", "Linux"];
   const aiMlSkills = ["TensorFlow", "PyTorch", "Scikit-learn", "NLP"];
   const cyberSecuritySkills = ["Kali Linux", "Airgeddon", "Wireshark", "Burp Suite", "Nmap", "Metasploit", "OWASP"];
+  const softSkills = ["Effective Communication", "Team Collaboration", "Problem Solving", "Adaptability", "Time Management"];
+
 
   return (
     <section id="about" className="min-h-screen flex items-center justify-center py-20 bg-gradient-to-b from-[#15103a] to-[#080621]">
@@ -131,11 +133,78 @@ const About = () => {
                     ))}
                   </div>
                 </div>
+
+                {/* Soft Skills */}
+                <div className="bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-2xl p-6 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300">
+                  <h3 className="text-xl font-bold mb-4 text-blue-300 flex items-center gap-2">
+                    <span className="text-2xl">🤝</span> Soft Skills
+                  </h3>
+                  <div className="flex flex-wrap gap-3">
+                    {softSkills.map((skill, index) => (
+                      <span
+                        key={index}
+                        className="bg-blue-500/10 text-blue-400 py-2 px-4 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_0_10px_rgba(59,130,246,0.3)] transition-all"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+
+
               </div>
             </div>
 
             {/* Right Column */}
             <div className="space-y-8">
+
+              {/* Experience - Updated with Security Focus */}
+              <div className="bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-2xl p-6 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300">
+                <h3 className="text-2xl font-bold mb-4 text-blue-300 flex items-center gap-2">
+                  <span className="text-2xl">💼</span> Experience
+                </h3>
+                <div className="space-y-4 text-blue-100">
+                  <div>
+                    <div className="font-semibold text-blue-400">IT Attachee at Huduma Center Migori, Kenya</div>
+                    <div className="text-sm">9th June - 4th Aug 2025 (2 Months)</div>
+                    <ul className="list-disc list-inside space-y-1 mt-2 pl-2 text-sm">
+                      <li>Provided technical support across multiple government service IT desks</li>
+                      <li>Troubleshot and resolved hardware/software issues for 50+ workstations</li>
+                      <li>Managed user accounts and access permissions in government systems</li>
+                      <li>Assisted in network maintenance and security configurations</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-blue-400">Attachee at Smart Touch Printers</div>
+                    <div className="text-sm">5th May - 13th Aug 2024 (3 Months)</div>
+                    <ul className="list-disc list-inside space-y-1 mt-2 pl-2 text-sm">
+                      <li>Implemented security protocols for web applications</li>
+                      <li>Conducted vulnerability assessments using Kali Linux tools</li>
+                      <li>Front-end integration with security considerations</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-blue-400">Work Study Programme at MMU</div>
+                    <div className="text-sm">2023 (Whole semester)</div>
+                    <ul className="list-disc list-inside space-y-1 mt-2 pl-2 text-sm">
+                      <li>Network security configuration</li>
+                      <li>IT security support and monitoring</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-blue-400">Personal Security Projects</div>
+                    <div className="text-sm">Ongoing</div>
+                    <ul className="list-disc list-inside space-y-1 mt-2 pl-2 text-sm">
+                      <li>Penetration testing with Metasploit</li>
+                      <li>Network analysis with Wireshark</li>
+                      <li>Web vulnerability scanning with Burp Suite</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+
               {/* Education */}
               <div className="bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-2xl p-6 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300">
                 <h3 className="text-2xl font-bold mb-4 text-blue-300 flex items-center gap-2">
@@ -167,40 +236,7 @@ const About = () => {
                 </ul>
               </div>
 
-              {/* Experience - Updated with Security Focus */}
-              <div className="bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-2xl p-6 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300">
-                <h3 className="text-2xl font-bold mb-4 text-blue-300 flex items-center gap-2">
-                  <span className="text-2xl">💼</span> Experience
-                </h3>
-                <div className="space-y-4 text-blue-100">
-                  <div>
-                    <div className="font-semibold text-blue-400">Attachee at Smart Touch Printers</div>
-                    <div className="text-sm">2024 (2 Months)</div>
-                    <ul className="list-disc list-inside space-y-1 mt-2 pl-2 text-sm">
-                      <li>Implemented security protocols for web applications</li>
-                      <li>Conducted vulnerability assessments using Kali Linux tools</li>
-                      <li>Front-end integration with security considerations</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-blue-400">Work Study Programme at MMU</div>
-                    <div className="text-sm">2023 (Whole semester)</div>
-                    <ul className="list-disc list-inside space-y-1 mt-2 pl-2 text-sm">
-                      <li>Network security configuration</li>
-                      <li>IT security support and monitoring</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-blue-400">Personal Security Projects</div>
-                    <div className="text-sm">Ongoing</div>
-                    <ul className="list-disc list-inside space-y-1 mt-2 pl-2 text-sm">
-                      <li>Penetration testing with Metasploit</li>
-                      <li>Network analysis with Wireshark</li>
-                      <li>Web vulnerability scanning with Burp Suite</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
 
