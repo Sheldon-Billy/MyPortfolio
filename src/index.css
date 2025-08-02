@@ -115,31 +115,3 @@ body {
   }
 }
 
-@keyframes pulse {
-
-  0%,
-  100% {
-    opacity: 0.3;
-  }
-
-  50% {
-    opacity: 0.8;
-  }
-}
-
-
-@keyframes ping-slow {
-  0% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-
-  100% {
-    transform: scale(1.2);
-    opacity: 0;
-  }
-}
-
-.animate-ping-slow {
-  animation: ping-slow 2s ease-out infinite;
-}

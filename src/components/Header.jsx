@@ -37,7 +37,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="fixed z-50 md:w-full sm:w-75 bg-[#0a081a]/90 backdrop-blur-md border-b border-gray-500">
+    <nav className="fixed z-50 md:w-full  bg-[#0a081a]/90 backdrop-blur-md border-b border-gray-500">
       <div className="max-w-7xl md:mx-auto px-6 sm:mx-0">
         <div className="flex items-center justify-between h-16">
           {/* Logo/Brand */}
@@ -48,7 +48,7 @@ const Header = () => {
             <FaLaptopCode className="text-blue-500 text-xl md:relative md:left-0 sm:left-0 sm:absolute" />
             <span className="ml-2 font-bold text-[#00ff00] text-[15px]">Hammattan</span>
             <span className="text-blue-500 text-2xl font-[cursive]">.tech</span>
-            <FaReact className="ml-2 text-cyan-400 text-xl animate-[spin_8s_linear_infinite]" />
+            <FaReact className="text-[#00ff00] size-6 text-xl animate-[spin_2s_linear_infinite]" />
           </div>
 
           {/* Desktop Navigation */}
@@ -57,8 +57,8 @@ const Header = () => {
               <li key={link.id}>
                 <button
                   onClick={() => scrollToSection(link.id)}
-                  className={`relative px-1 py-2 text-sm font-medium transition-colors duration-300
-                    ${activeLink === link.id ? "text-blue-400" : "text-gray-300 hover:text-[#7c8000]"}`
+                  className={`relative px-1 py-2 text-sm font-medium transition-colors duration-200 hover:scale-120
+                    ${activeLink === link.id ? "text-blue-400" : "text-gray-300 hover:text-[#00ff00]"}`
                   }
                   {...(activeLink === link.id && { 'aria-current': 'page' })}
                 >
@@ -73,7 +73,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden flex flex-col justify-center items-center w-30 h-8 md:relative sm:absolute sm:right-0"
+            className="lg:hidden flex flex-col justify-center items-center w-55 h-8 md:relative sm:absolute sm:right-0"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
@@ -108,7 +108,7 @@ const Header = () => {
                   >
                     {link.label}
                     {activeLink === link.id && (
-                      <span className="ml-2 w-2 h-2 bg-blue-400 rounded-full animate-[pulse_1.5s_ease-in-out_infinite]" />
+                      <span className="ml-2 w-2 h-2 bg-[#00ff00] rounded-full animate-[pulse_1.5s_ease-in-out_infinite]" />
                     )}
                   </button>
                 </li>
