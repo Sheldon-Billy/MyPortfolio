@@ -115,6 +115,9 @@ body {
   }
 }
 
+
+
+
 @keyframes infinite-scroll {
     0% {
       transform: translateX(0);
@@ -142,3 +145,139 @@ body {
   .animate-infinite-scroll-reverse {
     animation: infinite-scroll-reverse 25s linear infinite;
   }
+
+
+
+
+
+
+
+
+ 
+      /* Scrolling Animation */
+      @keyframes scroll-quote {
+        0% {
+          transform: translateX(0);
+        }
+  
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+  
+      .animate-scroll-quote {
+        animation: scroll-quote 15s linear infinite;
+      }
+  
+      /* Emoji Animations */
+      @keyframes heartbeat {
+  
+        0%,
+        100% {
+          transform: scale(1);
+        }
+  
+        25% {
+          transform: scale(1.4);
+        }
+  
+        50% {
+          transform: scale(0.9);
+        }
+  
+        75% {
+          transform: scale(1.1);
+        }
+      }
+  
+      .animate-heartbeat {
+        animation: heartbeat 1.5s infinite;
+      }
+  
+      @keyframes spin-slow {
+        0% {
+          transform: rotate(0deg);
+        }
+  
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+  
+      .animate-spin-slow {
+        animation: spin-slow 8s linear infinite;
+        display: inline-block;
+      }
+  
+      @keyframes bounce-slow {
+  
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+  
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+  
+      .animate-bounce-slow {
+        animation: bounce-slow 2s ease-in-out infinite;
+      }
+  
+      @keyframes wiggle {
+  
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+  
+        25% {
+          transform: rotate(20deg);
+        }
+  
+        75% {
+          transform: rotate(-20deg);
+        }
+      }
+  
+      .animate-wiggle {
+        animation: wiggle 1s ease-in-out infinite;
+      }
+  
+      /* Interactive Styles */
+      .social-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem; /* gap-1 in Tailwind is 0.25rem */
+        color: #93c5fd; /* text-blue-300 in Tailwind is #93c5fd */
+        transition-property: all;
+        transition-duration: 300ms;
+      }
+  
+      .social-btn:active .emoji {
+        transform: scale(0.9);
+      }
+
+
+
+
+/* 
+testimonials scroling up */
+
+
+@keyframes scroll-up {
+                0% {
+                  transform: translateY(0);
+                }
+      
+                100% {
+                  transform: translateY(-50%);
+                }
+              }
+      
+              .animate-infinite-scroll-up {
+                animation: scroll-up 10s linear infinite;
+              }
+  .animate-infinite-scroll-up:hover {
+        animation-play-state: paused;             }

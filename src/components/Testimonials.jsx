@@ -110,7 +110,7 @@ const Testimonials = () => {
                         <div className="lg:block lg:w-1/4 xl:w-1/5 space-y-6 shadow-[0_0_30px_blue]">
                             {[
                                 {
-                                    name: "Data Analist Leaders Inc.",
+                                    name: "Data Analyst Leaders Inc.",
                                     jina: "Christine Kerubo",
                                     role: "Primary Supporter",
                                     avatar: Babe,
@@ -138,6 +138,14 @@ const Testimonials = () => {
                                     jina: "Esther Wangui",
                                     role: "Early Backers",
                                     avatar: Esther,
+                                    quote: "First to test my prototypes",
+                                    stats: { likes: "129k", retweets: "7k", shares: "4k", replies: "2k" }
+                                },
+                                {
+                                    name: "ICT Pro.Expert",
+                                    jina: "Hagai Leon",
+                                    role: "Lengendary developer",
+                                    avatar: Leon,
                                     quote: "First to test my prototypes",
                                     stats: { likes: "129k", retweets: "7k", shares: "4k", replies: "2k" }
                                 }
@@ -201,80 +209,125 @@ const Testimonials = () => {
                             ))}
                         </div>
 
-                        <style jsx global>{`
-  /* Scrolling Animation */
-  @keyframes scroll-quote {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .animate-scroll-quote {
-    animation: scroll-quote 15s linear infinite;
-  }
 
-  /* Emoji Animations */
-  @keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    25% { transform: scale(1.1); }
-    50% { transform: scale(0.9); }
-    75% { transform: scale(1.05); }
-  }
-  .animate-heartbeat {
-    animation: heartbeat 1.5s infinite;
-  }
-
-  @keyframes spin-slow {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  .animate-spin-slow {
-    animation: spin-slow 8s linear infinite;
-    display: inline-block;
-  }
-
-  @keyframes bounce-slow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-  }
-  .animate-bounce-slow {
-    animation: bounce-slow 2s ease-in-out infinite;
-  }
-
-  @keyframes wiggle {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    75% { transform: rotate(-5deg); }
-  }
-  .animate-wiggle {
-    animation: wiggle 1s ease-in-out infinite;
-  }
-
-  /* Interactive Styles */
-  .social-btn {
-    @apply flex items-center gap-1 text-blue-300 transition-all duration-300;
-  }
-  .social-btn:hover .emoji {
-    filter: drop-shadow(0 0 6px currentColor);
-  }
-  .social-btn:active .emoji {
-    transform: scale(0.9);
-  }
-`}</style>
 
                         {/* Right column - Testimonials */}
-                        <div className="w-full lg:w-3/4 xl:w-4/5 ">
+                        <div className="w-full lg:w-3/4 xl:w-4/5">
                             <div
                                 ref={containerRef}
-                                className="relative h-[400px] md:h-[735px] overflow-hidden shadow-[0_0_30px_blue] rounded-xl"
+                                className="relative h-[400px] md:h-[1150px] overflow-hidden shadow-[0_0_30px_blue] rounded-xl"
                             >
+                                {/* Animated Content */}
                                 <div
                                     ref={contentRef}
-                                    className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+                                    className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 animate-infinite-scroll-up"
                                 >
+                                    {/* Original Content */}
                                     {testimonials.map((testimonial, index) => (
                                         <div
                                             key={testimonial.id}
                                             className="bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-lg md:rounded-xl p-4 md:p-5 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300"
                                         >
+                                            {/* Your existing testimonial content */}
+                                            <div className="flex items-start gap-3 mb-3">
+                                                <img
+                                                    src={testimonial.avatar}
+                                                    alt={testimonial.name}
+                                                    className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border border-blue-500"
+                                                />
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="flex flex-wrap items-center gap-1 md:gap-2">
+                                                        <h3 className="font-bold text-[#0aff0a] text-sm md:text-base">
+                                                            {testimonial.name}
+                                                        </h3>
+                                                        <span className="text-blue-400 text-xs md:text-sm">
+                                                            {testimonial.handle}
+                                                        </span>
+                                                        <span className="text-blue-400/60 text-xs md:text-sm">
+                                                            {testimonial.date}
+                                                        </span>
+                                                    </div>
+                                                    <p className="text-blue-100 mt-2 mb-3 text-sm md:text-base">
+                                                        {testimonial.text} {testimonial.emoji}
+                                                    </p>
+                                                    <div className="flex gap-3 md:gap-4 text-blue-400 text-xs md:text-sm">
+                                                        <button className="flex items-center gap-1 hover:text-blue-300 text-[orange]">
+                                                            <svg
+                                                                className="w-3 h-3 md:w-4 md:h-4"
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                                viewBox="0 0 24 24"
+                                                            >
+                                                                <path
+                                                                    strokeLinecap="round"
+                                                                    strokeLinejoin="round"
+                                                                    strokeWidth="1.5"
+                                                                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                                                                />
+                                                            </svg>
+                                                            <span>Reply</span>
+                                                        </button>
+                                                        <button className="flex items-center gap-1 hover:text-blue-300 text-[#009700]">
+                                                            <svg
+                                                                className="w-3 h-3 md:w-4 md:h-4"
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                                viewBox="0 0 24 24"
+                                                            >
+                                                                <path
+                                                                    strokeLinecap="round"
+                                                                    strokeLinejoin="round"
+                                                                    strokeWidth="1.5"
+                                                                    d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                                                                />
+                                                            </svg>
+                                                            <span>{testimonial.retweets}</span>
+                                                        </button>
+                                                        <button className="flex items-center gap-1 hover:text-blue-300 text-[#c02b2b]">
+                                                            <svg
+                                                                className="w-3 h-3  md:w-4"
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                                viewBox="0 0 24 24"
+                                                            >
+                                                                <path
+                                                                    strokeLinecap="round"
+                                                                    strokeLinejoin="round"
+                                                                    strokeWidth="1.5"
+                                                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                                                                />
+                                                            </svg>
+                                                            <span>{testimonial.likes}</span>
+                                                        </button>
+                                                        <button className="flex items-center gap-1 hover:text-blue-300 text-purple-700">
+                                                            <svg
+                                                                className="w-3 h-3 md:w-4 md:h-4"
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                                viewBox="0 0 24 24"
+                                                            >
+                                                                <path
+                                                                    strokeLinecap="round"
+                                                                    strokeLinejoin="round"
+                                                                    strokeWidth="1.5"
+                                                                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                                                                />
+                                                            </svg>
+                                                            <span>Share</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+
+                                    {/* Duplicated Content for Seamless Looping */}
+                                    {testimonials.map((testimonial, index) => (
+                                        <div
+                                            key={`dup-${testimonial.id}`}
+                                            className="bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-lg md:rounded-xl p-4 md:p-5 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300"
+                                        >
+                                            {/* Duplicated testimonial content */}
                                             <div className="flex items-start gap-3 mb-3">
                                                 <img
                                                     src={testimonial.avatar}
@@ -373,6 +426,8 @@ const Testimonials = () => {
                                 <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#120c45] to-transparent z-10"></div>
                             </div>
                         </div>
+
+
                     </div>
 
                     <div className="mt-10 text-center">
