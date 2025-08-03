@@ -6,18 +6,38 @@ body {
   color: rgb(0, 255, 0);
   /* Keeping your neon text color */
   background: radial-gradient(circle at center,
-      #040117 0%,
-      /* Deep space blue (center) */
-      #060425 30%,
-      /* Rich dark blue (middle spread) */
-      #120c45 60%,
-      /* Slightly lighter blue */
-      rgba(7, 3, 41, 0.3) 100%
-      /* Faded outer edge */
+      #010111 0%,
+      /* Deep cosmic void (center) */
+      #02021a 30%,
+      /* Slightly lighter but still very dark */
+      #0a0828 60%,
+      /* Dark space purple-blue */
+      rgba(4, 2, 20, 0.3) 100%
+      /* Nearly transparent outer edge */
     );
   background-attachment: fixed;
   background-size: 200% 200%;
   animation: bluePulse 30s ease infinite;
+}
+
+@keyframes bluePulse {
+
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+
+  25% {
+    background-position: 50% 50%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  75% {
+    background-position: 50% 50%;
+  }
 }
 
 @keyframes bluePulse {
