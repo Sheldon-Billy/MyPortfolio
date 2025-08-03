@@ -5,14 +5,24 @@ import { Babe, Comfortine, Esther, Leon, Me, Sheldon, Simo } from "../assets/Pic
 const Testimonials = () => {
     const testimonials = [
         {
+            id: 0,
+            name: "Sheldon Billy",
+            handle: "@Hammattan.Tech",
+            text: "Am Greatfull for your support y'all. Through your encouragement, i keep on pushing to the heights!🚀",
+            date: "2 days ago",
+            emoji: "💡",
+            likes: "10M",
+            retweets: "500k",
+            avatar: Me,
+        }, {
             id: 1,
             name: "John Vetans",
             handle: "@TechLeader",
             text: "Sheldon isn't your average developer - he actually builds useful features that solve real problems. His AI disease detection system is revolutionary!",
-            date: "2 days ago",
+            date: "6 days ago",
             emoji: "💡",
             likes: "105k",
-            retweets: "5",
+            retweets: "3k",
             avatar: "https://randomuser.me/api/portraits/men/32.jpg",
         },
         {
@@ -22,19 +32,19 @@ const Testimonials = () => {
             text: "I'm so impressed with Sheldon's work. Developer + AI skills = Magic 💫 Transformed our clinic's workflow with his dermatology assistant.",
             date: "1 week ago",
             emoji: "💫",
-            likes: "42",
-            retweets: "12",
+            likes: "42k",
+            retweets: "12k",
             avatar: "https://randomuser.me/api/portraits/women/44.jpg",
         },
         {
             id: 3,
-            name: "Aadi Sheth",
-            handle: "@StartupFounder",
+            name: "Hagai Leon",
+            handle: "@IntroTech",
             text: "Developers, don't walk, run to work with Sheldon! No design skills? No problem. He prototyped in minutes what took others weeks.",
-            date: "3 weeks ago",
+            date: "2 days ago",
             emoji: "🚀",
-            likes: "18",
-            retweets: "3",
+            likes: "550k",
+            retweets: "30k",
             avatar: Leon,
         },
         {
@@ -44,8 +54,8 @@ const Testimonials = () => {
             text: "One of my favourite developers. His CI/CD pipeline is only 1 of 9 amazing skills he brings. The technical skills are just a small sliver of what he can do.",
             date: "1 month ago",
             emoji: "✨",
-            likes: "31",
-            retweets: "8",
+            likes: "31k",
+            retweets: "8k",
             avatar: "https://randomuser.me/api/portraits/women/68.jpg",
         },
         {
@@ -55,8 +65,8 @@ const Testimonials = () => {
             text: "Great developers like Sheldon empower teams. From zero to functional blockchain prototype in days, that's unbelievable.",
             date: "2 months ago",
             emoji: "🔥",
-            likes: "56",
-            retweets: "15",
+            likes: "56k",
+            retweets: "15k",
             avatar: "https://randomuser.me/api/portraits/men/75.jpg",
         },
     ];
@@ -106,47 +116,54 @@ const Testimonials = () => {
 
                     {/* Main content with responsive layout */}
                     <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+
                         {/* Left column - Process steps (hidden on mobile) */}
-                        <div className="lg:block lg:w-1/4 xl:w-1/5 space-y-6 shadow-[0_0_30px_blue]">
+
+                        <div className="lg:block lg:w-1/4 xl:w-90 space-y-6 shadow-[0_0_30px_blue]">
                             {[
                                 {
-                                    name: "Data Analyst Leaders Inc.",
-                                    jina: "Christine Kerubo",
+                                    name: "Data Analyst Leader Inc.",
+                                    jina: "Christine Kerubo M.",
                                     role: "Primary Supporter",
+                                    company: "@GabiGeeks",
                                     avatar: Babe,
-                                    quote: "Believed in my vision from day one",
+                                    quote: "Believed in his vision from day one.",
                                     stats: { likes: "42k", retweets: "12k", shares: "8k", replies: "5k" }
                                 },
                                 {
                                     name: "OpenAI Community",
-                                    jina: "Comfortine Siwende",
-                                    role: "Technical Advisors",
+                                    jina: "Comfortine Siwende O.",
+                                    role: "Technical Advisor",
+                                    company: "@NestLink",
                                     avatar: Comfortine,
                                     quote: "Provided invaluable AI guidance",
                                     stats: { likes: "38k", retweets: "15k", shares: "6k", replies: "3k" }
                                 },
                                 {
                                     name: "Dev Mentors Group",
-                                    jina: "Melvin Simon",
-                                    role: "Career Supporters",
+                                    jina: "Melvin Simon O.",
+                                    role: "Career Supporter",
+                                    company: "@XenixTechnologies",
                                     avatar: Simo,
                                     quote: "Helped shape my developer journey",
                                     stats: { likes: "56k", retweets: "18k", shares: "9k", replies: "7k" }
                                 },
                                 {
                                     name: "Data Enthusiast",
-                                    jina: "Esther Wangui",
-                                    role: "Early Backers",
+                                    jina: "Esther Wangui G.",
+                                    role: "Technical Supporter",
+                                    company: "@PomyYans",
                                     avatar: Esther,
-                                    quote: "First to test my prototypes",
+                                    quote: "First to test his prototypes. Damn Crazy",
                                     stats: { likes: "129k", retweets: "7k", shares: "4k", replies: "2k" }
                                 },
                                 {
                                     name: "ICT Pro.Expert",
-                                    jina: "Hagai Leon",
+                                    jina: "Hagai Leon O.",
                                     role: "Lengendary developer",
+                                    company: "@IntroTech",
                                     avatar: Leon,
-                                    quote: "First to test my prototypes",
+                                    quote: "He's My senior Junior. Keep Pushing Bruv!",
                                     stats: { likes: "129k", retweets: "7k", shares: "4k", replies: "2k" }
                                 }
                             ].map((supporter, index) => (
@@ -159,14 +176,17 @@ const Testimonials = () => {
                                         <img
                                             src={supporter.avatar}
                                             alt={supporter.name}
-                                            className="w-25 h-20 rounded-full object-cover border border-blue-500 transition-transform duration-500 group-hover:rotate-3"
+                                            className="w-20 h-20 rounded-full object-cover border border-blue-500 transition-transform duration-500"
                                         />
                                         <div>
                                             <h3 className="text-lg font-bold text-[#0aff0a] group-hover:text-white transition-colors duration-300">
                                                 {supporter.name}
                                             </h3>
-                                            <p className="text-blue-400 text-xs">{supporter.jina}</p>
+                                            <p className="text-blue-400 text-[20px]">{supporter.jina}</p>
+                                            <p className="text-[#00ff00] text-[15px] cursor-pointer hover:underline">{supporter.company}</p>
                                             <p className="text-blue-400 text-xs">{supporter.role}</p>
+
+
                                         </div>
                                     </div>
 
@@ -427,7 +447,15 @@ const Testimonials = () => {
                             </div>
                         </div>
 
-
+                        <style jsx global>{`
+  @keyframes scroll-up {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+  .animate-infinite-scroll-up {
+    animation: scroll-up 40s linear infinite;
+  }
+`}</style>
                     </div>
 
                     <div className="mt-10 text-center">

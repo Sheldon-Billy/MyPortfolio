@@ -74,7 +74,7 @@ const Certifications = () => {
             link: "https://www.credly.com/badges/edf431be-3f22-4cfb-a4ab-f97b440ea357/public_url"
         },
         {
-            title: "AWS Educate Machine Learning Foundations",
+            title: "AWS Educate Machine Learning",
             issuer: "Amazon Web Services",
             image: Badge1,
             link: "https://www.credly.com/badges/8180cb89-f07a-4901-bf22-d42ff978ec1c/public_url"

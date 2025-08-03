@@ -277,7 +277,7 @@ testimonials scroling up */
               }
       
               .animate-infinite-scroll-up {
-                animation: scroll-up 10s linear infinite;
+                animation: scroll-up 20s linear infinite;
               }
   .animate-infinite-scroll-up:hover {
         animation-play-state: paused;             }
