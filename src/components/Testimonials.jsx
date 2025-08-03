@@ -97,7 +97,7 @@ const Testimonials = () => {
     },
     {
       name: "OpenAI Community",
-      jina: "Comfortine Siwende O.",
+      jina: "Comfortine Siwende",
       role: "Technical Advisor",
       company: "@NestLink",
       avatar: Comfortine,
