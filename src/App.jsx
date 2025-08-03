@@ -6,7 +6,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
-import Footer from "./assets/Footer";
+import Footer from "./components/Footer";
 import Testimonials from "./components/Testimonials";
 import Certifications from "./components/Certifications";
 
@@ -17,8 +17,9 @@ function App() {
       {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
 
       <div
-        className={`min-h-screen transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"
-          }`}
+        className={`min-h-screen transition-opacity duration-700 ${
+          isLoaded ? "opacity-100" : "opacity-0"
+        }`}
       >
         <Header />
         <Home />
