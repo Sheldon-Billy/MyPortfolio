@@ -159,11 +159,11 @@ body {
   }
 
   .animate-infinite-scroll {
-    animation: infinite-scroll 60s linear infinite;
+    animation: infinite-scroll 30s linear infinite;
   }
 
   .animate-infinite-scroll-reverse {
-    animation: infinite-scroll-reverse 25s linear infinite;
+    animation: infinite-scroll-reverse 20s linear infinite;
   }
 
 

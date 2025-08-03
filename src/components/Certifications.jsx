@@ -9,6 +9,7 @@ import {
   Cert4,
   Cert5,
   Cert6,
+  Cert7,
 } from "../assets/Pics";
 import RevealOnSroll from "./RevealOnSroll";
 
@@ -57,7 +58,7 @@ const Certifications = () => {
     },
     {
       title: "AWS Generative AI & ML ",
-      issuer: "freeCodeCamp",
+      issuer: "Udacity & AWS",
       image: Cert6,
       date: "Aug 3rd 2025",
       credentialId:
@@ -67,7 +68,7 @@ const Certifications = () => {
     {
       title: "JavaScript Algorithms",
       issuer: "freeCodeCamp",
-      image: Cert2,
+      image: Cert7,
       date: "Sep 12th 2024",
       credentialId: "JS-ALGO-2023",
       link: "https://www.freecodecamp.org/certification/",
@@ -99,7 +100,7 @@ const Certifications = () => {
     },
     {
       title: "AWS AI & ML Scholars",
-      issuer: "Cisco Networking Academy",
+      issuer: "Udacity & AWS",
       image: Badge4,
       link: "https://mclick.udacity.com/z/u4154t800z8j04?uid=609444f9-90e6-4066-9a94-0419ac3d942e&txnid=a5881b5d-ba2c-4e63-9d7a-260b093448d9&mid=f06b7056-b774-484a-99aa-8b33fe436a11&bsft_aaid=8d7e276e-4a10-41b2-8868-423fe96dd6b2&bsft_ek=2025-08-03T21%3A19%3A32Z&bsft_mime_type=html&bsft_tv=12&bsft_lx=3",
     },
