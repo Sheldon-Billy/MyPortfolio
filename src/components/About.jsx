@@ -3,16 +3,46 @@ import RevealOnSroll from "./RevealOnSroll";
 import CV from "../assets/CV.pdf";
 
 const About = () => {
-  const frontendSkills = ["React", "Tailwind CSS", "HTML/CSS", "TypeScript", "Next.js", "Redux"];
-  const backendSkills = ["Node.js", "Python Django", "FastAPI", "Express", "PostgreSQL", "MongoDB"];
+  const frontendSkills = [
+    "React",
+    "Tailwind CSS",
+    "HTML/CSS",
+    "TypeScript",
+    "Next.js",
+    "Redux",
+  ];
+  const backendSkills = [
+    "Node.js",
+    "Python Django",
+    "FastAPI",
+    "Express",
+    "PostgreSQL",
+    "MongoDB",
+  ];
   const devOpsSkills = ["Docker", "AWS", "CI/CD", "Git", "Linux"];
   const aiMlSkills = ["TensorFlow", "PyTorch", "Scikit-learn", "NLP"];
-  const cyberSecuritySkills = ["Kali Linux", "Airgeddon", "Wireshark", "Burp Suite", "Nmap", "Metasploit", "OWASP"];
-  const softSkills = ["Effective Communication", "Team Collaboration", "Problem Solving", "Adaptability", "Time Management"];
-
+  const cyberSecuritySkills = [
+    "Kali Linux",
+    "Airgeddon",
+    "Wireshark",
+    "Burp Suite",
+    "Nmap",
+    "Metasploit",
+    "OWASP",
+  ];
+  const softSkills = [
+    "Effective Communication",
+    "Team Collaboration",
+    "Problem Solving",
+    "Adaptability",
+    "Time Management",
+  ];
 
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center py-20 bg-gradient-to-b from-[#15103a] to-[#080621]">
+    <section
+      id="about"
+      className="min-h-screen flex items-center justify-center py-20 bg-gradient-to-b from-[#15103a] to-[#080621]"
+    >
       <RevealOnSroll>
         <div className="max-w-6xl mx-auto px-4">
           {/* Hero Section */}
@@ -21,8 +51,9 @@ const About = () => {
               About Me
             </h2>
             <p className="text-blue-100 text-lg max-w-3xl mx-auto">
-              I'm a full-stack developer and cybersecurity enthusiast passionate about creating secure,
-              intelligent solutions that bridge cutting-edge technology with real-world applications.
+              I'm a full-stack developer and cybersecurity enthusiast passionate
+              about creating secure, intelligent solutions that bridge
+              cutting-edge technology with real-world applications.
             </p>
           </div>
 
@@ -32,18 +63,22 @@ const About = () => {
             <div className="lg:col-span-2 space-y-8">
               {/* Introduction Card */}
               <div className="bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-2xl p-8 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-300">
-                <h3 className="text-2xl font-bold mb-4 text-blue-300">My Journey</h3>
+                <h3 className="text-2xl font-bold mb-4 text-blue-300">
+                  My Journey
+                </h3>
                 <p className="text-blue-100 leading-relaxed">
-                  With expertise spanning full-stack development and cybersecurity, I build responsive
-                  web applications with robust security architectures. My academic background in
-                  Information Technology fuels my passion for integrating AI/ML capabilities with
-                  security best practices into practical solutions.
+                  With expertise spanning full-stack development and
+                  cybersecurity, I build responsive web applications with robust
+                  security architectures. My academic background in Information
+                  Technology fuels my passion for integrating AI/ML capabilities
+                  with security best practices into practical solutions.
                 </p>
                 <p className="text-blue-100 mt-4 leading-relaxed">
-                  My cybersecurity experience includes penetration testing, vulnerability assessment,
-                  and implementing security protocols. When I'm not coding or securing systems, you
-                  can find me contributing to open-source projects or mentoring aspiring developers
-                  in my community.
+                  My cybersecurity experience includes penetration testing,
+                  vulnerability assessment, and implementing security protocols.
+                  When I'm not coding or securing systems, you can find me
+                  contributing to open-source projects or mentoring aspiring
+                  developers in my community.
                 </p>
               </div>
 
@@ -150,15 +185,11 @@ const About = () => {
                     ))}
                   </div>
                 </div>
-
-
-
               </div>
             </div>
 
             {/* Right Column */}
             <div className="space-y-8">
-
               {/* Experience - Updated with Security Focus */}
               <div className="bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-2xl p-6 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300">
                 <h3 className="text-2xl font-bold mb-4 text-blue-300 flex items-center gap-2">
@@ -166,26 +197,56 @@ const About = () => {
                 </h3>
                 <div className="space-y-4 text-blue-100">
                   <div>
-                    <div className="font-semibold text-blue-400">IT Attachee at Huduma Center Migori, Kenya</div>
-                    <div className="text-sm">9th June - 4th Aug 2025 (2 Months)</div>
+                    <div className="font-semibold text-blue-400">
+                      Information Technology Attachee at Huduma Center Migori,
+                      Kenya
+                    </div>
+                    <div className="text-sm">
+                      9th June - 4th Aug 2025 (2 Months)
+                    </div>
                     <ul className="list-disc list-inside space-y-1 mt-2 pl-2 text-sm">
-                      <li>Provided technical support across multiple government service IT desks</li>
-                      <li>Troubleshot and resolved hardware/software issues for 50+ workstations</li>
-                      <li>Managed user accounts and access permissions in government systems</li>
-                      <li>Assisted in network maintenance and security configurations</li>
+                      <li>
+                        Provided technical support across multiple government
+                        service IT desks
+                      </li>
+                      <li>
+                        Troubleshot and resolved hardware/software issues for
+                        50+ workstations
+                      </li>
+                      <li>
+                        Managed user accounts and access permissions in
+                        government systems
+                      </li>
+                      <li>
+                        Assisted in network maintenance and security
+                        configurations
+                      </li>
                     </ul>
                   </div>
                   <div>
-                    <div className="font-semibold text-blue-400">Attachee at Smart Touch Printers</div>
-                    <div className="text-sm">5th May - 13th Aug 2024 (3 Months)</div>
+                    <div className="font-semibold text-blue-400">
+                      Attachee at Smart Touch Printers
+                    </div>
+                    <div className="text-sm">
+                      5th May - 13th Aug 2024 (3 Months)
+                    </div>
                     <ul className="list-disc list-inside space-y-1 mt-2 pl-2 text-sm">
-                      <li>Implemented security protocols for web applications</li>
-                      <li>Conducted vulnerability assessments using Kali Linux tools</li>
-                      <li>Front-end integration with security considerations</li>
+                      <li>
+                        Implemented security protocols for web applications
+                      </li>
+                      <li>
+                        Conducted vulnerability assessments using Kali Linux
+                        tools
+                      </li>
+                      <li>
+                        Front-end integration with security considerations
+                      </li>
                     </ul>
                   </div>
                   <div>
-                    <div className="font-semibold text-blue-400">Work Study Programme at MMU</div>
+                    <div className="font-semibold text-blue-400">
+                      Work Study Programme at MMU
+                    </div>
                     <div className="text-sm">2023 (Whole semester)</div>
                     <ul className="list-disc list-inside space-y-1 mt-2 pl-2 text-sm">
                       <li>Network security configuration</li>
@@ -193,7 +254,9 @@ const About = () => {
                     </ul>
                   </div>
                   <div>
-                    <div className="font-semibold text-blue-400">Personal Security Projects</div>
+                    <div className="font-semibold text-blue-400">
+                      Personal Security Projects
+                    </div>
                     <div className="text-sm">Ongoing</div>
                     <ul className="list-disc list-inside space-y-1 mt-2 pl-2 text-sm">
                       <li>Penetration testing with Metasploit</li>
@@ -204,7 +267,6 @@ const About = () => {
                 </div>
               </div>
 
-
               {/* Education */}
               <div className="bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-2xl p-6 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300">
                 <h3 className="text-2xl font-bold mb-4 text-blue-300 flex items-center gap-2">
@@ -212,8 +274,12 @@ const About = () => {
                 </h3>
                 <ul className="space-y-4 text-blue-100">
                   <li>
-                    <div className="font-semibold text-blue-400">B.S. in Information Technology</div>
-                    <div className="text-sm">Multimedia University of Kenya (2022 - Present)</div>
+                    <div className="font-semibold text-blue-400">
+                      B.S. in Information Technology
+                    </div>
+                    <div className="text-sm">
+                      Multimedia University of Kenya (2022 - Present)
+                    </div>
                     <div className="mt-2 text-sm">
                       <span className="font-medium">Relevant Coursework:</span>
                       <ul className="list-disc list-inside space-y-1 mt-1 pl-2">
@@ -227,7 +293,9 @@ const About = () => {
                   </li>
                   <li>
                     <div className="font-semibold text-blue-400">K.C.S.E</div>
-                    <div className="text-sm">Kanyawanga High School (2018 - 2022)</div>
+                    <div className="text-sm">
+                      Kanyawanga High School (2018 - 2022)
+                    </div>
                   </li>
                   <li>
                     <div className="font-semibold text-blue-400">K.C.P.E</div>
@@ -235,8 +303,6 @@ const About = () => {
                   </li>
                 </ul>
               </div>
-
-
             </div>
           </div>
 

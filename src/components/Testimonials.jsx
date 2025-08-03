@@ -176,7 +176,7 @@ const Testimonials = () => {
                     <img
                       src={supporter.avatar}
                       alt={supporter.name}
-                      className="w-20 h-20 rounded-full object-cover border border-blue-500 transition-transform duration-500"
+                      className="w-20 h-20 rounded-full object-cover border border-blue-500 transition-all duration-500 group-hover:rotate-[10deg] group-hover:scale-105"
                     />
                     <div>
                       <h3 className="text-lg font-bold text-[#0aff0a] group-hover:text-white transition-colors duration-300">
@@ -193,8 +193,8 @@ const Testimonials = () => {
                   </div>
 
                   <div className="relative overflow-hidden mb-3 h-8">
-                    <div className="flex w-max animate-scroll-quote">
-                      <p className="text-blue-100 text-sm italic whitespace-nowrap pr-8">
+                    <div className="flex w-max animate-marquee whitespace-nowrap">
+                      <p className="text-blue-100 text-sm italic pr-8">
                         "{supporter.quote}" • "{supporter.quote}" •
                       </p>
                     </div>
@@ -202,31 +202,31 @@ const Testimonials = () => {
 
                   <div className="flex justify-between text-xs border-t border-blue-500/30 pt-3">
                     <button
-                      className="social-btn hover:text-red-400"
+                      className="social-btn hover:text-red-400 flex items-center gap-1"
                       aria-label="Like"
                     >
-                      <span className="emoji animate-heartbeat">❤️</span>
+                      <span className="animate-heartbeat">❤️</span>
                       <span>{supporter.stats.likes}</span>
                     </button>
                     <button
-                      className="social-btn hover:text-green-400"
+                      className="social-btn hover:text-green-400 flex items-center gap-1"
                       aria-label="Retweet"
                     >
-                      <span className="emoji animate-spin-slow">🔁</span>
+                      <span className="animate-spin-slow">🔁</span>
                       <span>{supporter.stats.retweets}</span>
                     </button>
                     <button
-                      className="social-btn hover:text-blue-300"
+                      className="social-btn hover:text-blue-300 flex items-center gap-1"
                       aria-label="Share"
                     >
-                      <span className="emoji animate-bounce-slow">📤</span>
+                      <span className="animate-bounce">📤</span>
                       <span>{supporter.stats.shares}</span>
                     </button>
                     <button
-                      className="social-btn hover:text-yellow-300"
+                      className="social-btn hover:text-yellow-300 flex items-center gap-1"
                       aria-label="Reply"
                     >
-                      <span className="emoji animate-wiggle">💬</span>
+                      <span className="animate-wiggle">💬</span>
                       <span>{supporter.stats.replies}</span>
                     </button>
                   </div>
