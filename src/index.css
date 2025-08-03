@@ -153,131 +153,125 @@ body {
 
 
 
- 
-      /* Scrolling Animation */
-      @keyframes scroll-quote {
-        0% {
-          transform: translateX(0);
-        }
-  
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-  
-      .animate-scroll-quote {
-        animation: scroll-quote 15s linear infinite;
-      }
-  
-      /* Emoji Animations */
-      @keyframes heartbeat {
-  
-        0%,
-        100% {
-          transform: scale(1);
-        }
-  
-        25% {
-          transform: scale(1.4);
-        }
-  
-        50% {
-          transform: scale(0.9);
-        }
-  
-        75% {
-          transform: scale(1.1);
-        }
-      }
-  
-      .animate-heartbeat {
-        animation: heartbeat 1.5s infinite;
-      }
-  
-      @keyframes spin-slow {
-        0% {
-          transform: rotate(0deg);
-        }
-  
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-  
-      .animate-spin-slow {
-        animation: spin-slow 8s linear infinite;
-        display: inline-block;
-      }
-  
-      @keyframes bounce-slow {
-  
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-  
-        50% {
-          transform: translateY(-5px);
-        }
-      }
-  
-      .animate-bounce-slow {
-        animation: bounce-slow 2s ease-in-out infinite;
-      }
-  
-      @keyframes wiggle {
-  
-        0%,
-        100% {
-          transform: rotate(0deg);
-        }
-  
-        25% {
-          transform: rotate(20deg);
-        }
-  
-        75% {
-          transform: rotate(-20deg);
-        }
-      }
-  
-      .animate-wiggle {
-        animation: wiggle 1s ease-in-out infinite;
-      }
-  
-      /* Interactive Styles */
-      .social-btn {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem; /* gap-1 in Tailwind is 0.25rem */
-        color: #93c5fd; /* text-blue-300 in Tailwind is #93c5fd */
-        transition-property: all;
-        transition-duration: 300ms;
-      }
-  
-      .social-btn:active .emoji {
-        transform: scale(0.9);
-      }
+ /* Testionials */
 
 
+ .testimonials-container {
+   position: relative;
+ }
 
+ .testimonials-content {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 1rem;
+   position: absolute;
+   width: 100%;
+   animation: scroll-up 50s linear infinite;
+ }
 
-/* 
-testimonials scroling up */
+ /* .testimonials-content:hover {
+   animation-play-state: paused;
+ } */
 
+ @media (min-width: 768px) {
+   .testimonials-content {
+     grid-template-columns: 1fr 1fr;
+     gap: 1.5rem;
+   }
+ }
 
-@keyframes scroll-up {
-                0% {
-                  transform: translateY(0);
-                }
-      
-                100% {
-                  transform: translateY(-50%);
-                }
-              }
-      
-              .animate-infinite-scroll-up {
-                animation: scroll-up 20s linear infinite;
-              }
-  .animate-infinite-scroll-up:hover {
-        animation-play-state: paused;             }
+ @keyframes scroll-up {
+   0% {
+     transform: translateY(0);
+   }
+
+   100% {
+     transform: translateY(-50%);
+   }
+ }
+
+ .animate-scroll-quote {
+   animation: scroll-quote 7s linear infinite;
+ }
+
+ @keyframes scroll-quote {
+   0% {
+     transform: translateX(0);
+   }
+
+   100% {
+     transform: translateX(-50%);
+   }
+ }
+
+ .animate-heartbeat {
+   animation: heartbeat 1.5s infinite;
+ }
+
+ @keyframes heartbeat {
+   0% {
+     transform: scale(1);
+   }
+
+   25% {
+     transform: scale(1.2);
+   }
+
+   50% {
+     transform: scale(1.8);
+   }
+
+   75% {
+     transform: scale(1.4);
+   }
+
+   100% {
+     transform: scale(2.2);
+   }
+ }
+
+ .animate-spin-slow {
+   animation: spin 4s linear infinite;
+ }
+
+ @keyframes spin {
+   from {
+     transform: rotate(0deg);
+   }
+
+   to {
+     transform: rotate(360deg);
+   }
+ }
+
+ .animate-bounce-slow {
+   animation: bounce 2s infinite;
+ }
+
+ @keyframes bounce {
+
+   0%,
+   100% {
+     transform: translateY(0);
+   }
+
+   50% {
+     transform: translateY(-5px);
+   }
+ }
+
+ .animate-wiggle {
+   animation: wiggle 1s ease-in-out infinite;
+ }
+
+ @keyframes wiggle {
+
+   0%,
+   100% {
+     transform: rotate(-3deg);
+   }
+
+   50% {
+     transform: rotate(3deg);
+   }
+ }

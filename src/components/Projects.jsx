@@ -60,13 +60,13 @@ const Projects = () => {
                 <div
                   key={index}
                   className="
-                    bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-6
-                    hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(59,130,246,0.3)]
+                    bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-2xl p-6
+                    hover:-translate-y-10 hover:shadow-[0_0px_30px_blue]
                     transition-all duration-300
                     group
                   "
                 >
-                  <h3 className="text-xl font-bold mb-3 text-blue-300 group-hover:text-white transition-colors">
+                  <h3 className="text-xl font-bold mb-3  group-hover:text-white transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-blue-100 mb-4">
