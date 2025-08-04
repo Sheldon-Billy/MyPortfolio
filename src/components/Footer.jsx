@@ -81,12 +81,6 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8">
           {/* About Section */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-xl font-bold mb-4 text-blue-300">About Me</h3>
-            <p className="text-blue-100 mb-4">
-              Full-stack developer,Ai-enthusiast and cybersecurity Guru
-              passionate about creating elegant, efficient solutions to complex
-              problems with cutting-edge technologies.
-            </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
                 <a
