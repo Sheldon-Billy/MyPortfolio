@@ -42,7 +42,7 @@ const Certifications = () => {
     },
     {
       title: "Certified Ethical Hacker",
-      issuer: "Cisco Networking Academy",
+      issuer: "Sololearn",
       image: Cert3,
       date: "May 14th 2024",
       credentialId: "CEH-123456",
@@ -50,7 +50,7 @@ const Certifications = () => {
     },
     {
       title: "AI & Machine Learning Fundamentals",
-      issuer: "Microsoft",
+      issuer: "Ethic CodersPro",
       image: Cert4,
       date: "Sep 12th 2024",
       credentialId: "AI-ML-7890",
