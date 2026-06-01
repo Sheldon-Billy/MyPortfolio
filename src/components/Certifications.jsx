@@ -1,224 +1,237 @@
 import {
-  Badge1,
-  Badge2,
-  Badge3,
-  Badge4,
-  Cert1,
-  Cert2,
-  Cert3,
-  Cert4,
-  Cert5,
-  Cert6,
-  Cert7,
+  Badge1, Badge2, Badge3, Badge4,
+  Cert1, Cert2, Cert3, Cert4, Cert5, Cert6, Cert7,
 } from "../assets/Pics";
 import RevealOnSroll from "./RevealOnSroll";
+import { FiExternalLink } from "react-icons/fi";
 
-const Certifications = () => {
-  // Certificates Data - properly duplicated for seamless animation
-  const certificateItems = [
-    {
-      title: "Python & Django",
-      issuer: "Udemy",
-      image: Cert5,
-      date: "Dec 4th 2024",
-      credentialId: "UC-a8fca9d9-e606-427e-b0e9-50b8e6ce8163",
-      link: "https://www.udemy.com/certificate/UC-a8fca9d9-e606-427e-b0e9-50b8e6ce8163/",
-    },
-    {
-      title: "Introduction to HTML",
-      issuer: "Sololearn",
-      image: Cert1,
-      date: "Jan 12th 2024",
-      credentialId: "CC-DP7V5LB4",
-      link: "https://www.sololearn.com/certificates/CC-DP7V5LB4",
-    },
-    {
-      title: "Introduction to Python",
-      issuer: "Sololearn",
-      image: Cert2,
-      date: "Jan 20th 2024",
-      credentialId: "CC-BME39LYN",
-      link: "https://www.sololearn.com/certificates/CC-BME39LYN",
-    },
-    {
-      title: "Certified Ethical Hacker",
-      issuer: "Sololearn",
-      image: Cert3,
-      date: "May 14th 2024",
-      credentialId: "CEH-123456",
-      link: "https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/",
-    },
-    {
-      title: "AI & Machine Learning Fundamentals",
-      issuer: "Ethic CodersPro",
-      image: Cert4,
-      date: "Sep 12th 2024",
-      credentialId: "AI-ML-7890",
-      link: "https://learn.microsoft.com/en-us/certifications/exams/ai-900/",
-    },
-    {
-      title: "AWS Generative AI & ML ",
-      issuer: "Udacity & AWS",
-      image: Cert6,
-      date: "Aug 3rd 2025",
-      credentialId:
-        "www.udacity.com/certificate/e/fcb43cca-5000-11f0-b4f9-6f86a84deecc",
-      link: "https://www.udacity.com/certificate/e/fcb43cca-5000-11f0-b4f9-6f86a84deecc",
-    },
-    {
-      title: "JavaScript Algorithms",
-      issuer: "freeCodeCamp",
-      image: Cert7,
-      date: "Sep 12th 2024",
-      credentialId: "JS-ALGO-2023",
-      link: "https://www.freecodecamp.org/certification/",
-    },
-  ];
+const certificateItems = [
+  {
+    title: "Python & Django",
+    issuer: "Udemy",
+    image: Cert5,
+    date: "Dec 2024",
+    link: "https://www.udemy.com/certificate/UC-a8fca9d9-e606-427e-b0e9-50b8e6ce8163/",
+  },
+  {
+    title: "HTML & CSS Basics",
+    issuer: "Sololearn",
+    image: Cert1,
+    date: "Jan 2024",
+    link: "https://www.sololearn.com/certificates/CC-DP7VSLB4",
+  },
+  {
+    title: "Introduction to Python",
+    issuer: "Sololearn",
+    image: Cert2,
+    date: "Jan 2024",
+    link: "https://www.sololearn.com/certificates/CC-BME39LYN",
+  },
+  {
+    title: "Ethical Hacking",
+    issuer: "Sololearn",
+    image: Cert3,
+    date: "May 2024",
+    link: "https://www.sololearn.com/certificates/",
+  },
+  {
+    title: "AI & ML Fundamentals",
+    issuer: "Ethic CodersPro",
+    image: Cert4,
+    date: "Sep 2024",
+    link: "https://learn.microsoft.com/en-us/certifications/",
+  },
+  {
+    title: "AWS Generative AI & ML",
+    issuer: "Udacity / AWS",
+    image: Cert6,
+    date: "Aug 2025",
+    link: "https://www.udacity.com/certificate/e/fcb43cca-5000-11f0-b4f9-6f86a84deecc",
+  },
+  {
+    title: "JavaScript Algorithms",
+    issuer: "freeCodeCamp",
+    image: Cert7,
+    date: "Sep 2024",
+    link: "https://www.freecodecamp.org/certification/",
+  },
+];
 
-  // Create properly duplicated array for seamless animation
-  const certificates = [...certificateItems, ...certificateItems];
+const badgeItems = [
+  {
+    title: "AI Agents Hackathon",
+    issuer: "Microsoft",
+    image: Badge3,
+    link: "https://www.credly.com/badges/edf431be-3f22-4cfb-a4ab-f97b440ea357/public_url",
+  },
+  {
+    title: "ML Foundations",
+    issuer: "Amazon Web Services",
+    image: Badge1,
+    link: "https://www.credly.com/badges/8180cb89-f07a-4901-bf22-d42ff978ec1c/public_url",
+  },
+  {
+    title: "Intro to Cybersecurity",
+    issuer: "Cisco Networking Academy",
+    image: Badge2,
+    link: "https://www.credly.com/badges/64d77c47-313f-42d5-bbf6-7bfba8525afb/public_url",
+  },
+  {
+    title: "AWS AI & ML Scholars",
+    issuer: "Udacity / AWS",
+    image: Badge4,
+    link: "https://www.udacity.com/certificate/e/fcb43cca-5000-11f0-b4f9-6f86a84deecc",
+  },
+];
 
-  // Badges Data
-  const badgeItems = [
-    {
-      title: "Hack Together: AI Agents Hackathon",
-      issuer: "Microsoft",
-      image: Badge3,
-      link: "https://www.credly.com/badges/edf431be-3f22-4cfb-a4ab-f97b440ea357/public_url",
-    },
-    {
-      title: "AWS Educate Machine Learning",
-      issuer: "Amazon Web Services",
-      image: Badge1,
-      link: "https://www.credly.com/badges/8180cb89-f07a-4901-bf22-d42ff978ec1c/public_url",
-    },
-    {
-      title: "Certified Ethical Hacker",
-      issuer: "Cisco Networking Academy",
-      image: Badge2,
-      link: "https://www.netacad.com/courses/ethical-hacker",
-    },
-    {
-      title: "AWS AI & ML Scholars",
-      issuer: "Udacity & AWS",
-      image: Badge4,
-      link: "https://mclick.udacity.com/z/u4154t800z8j04?uid=609444f9-90e6-4066-9a94-0419ac3d942e&txnid=a5881b5d-ba2c-4e63-9d7a-260b093448d9&mid=f06b7056-b774-484a-99aa-8b33fe436a11&bsft_aaid=8d7e276e-4a10-41b2-8868-423fe96dd6b2&bsft_ek=2025-08-03T21%3A19%3A32Z&bsft_mime_type=html&bsft_tv=12&bsft_lx=3",
-    },
-  ];
-
-  // Create duplicated array for badges
-  const badges = [...badgeItems, ...badgeItems];
-
-  return (
-    <section
-      id="certifications"
-      className="min-h-screen flex items-center justify-center py-20 bg-gradient-to-b from-[#0a081a]/50 to-[#0a081a]/80 overflow-hidden"
-    >
-      <RevealOnSroll>
-        <div className="max-w-6xl mx-auto px-4 w-full">
-          {/* Certificates Section - Scroll Left */}
-          <div className="mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 bg-clip-text text-transparent text-center">
-              My Certificates
-            </h2>
-            <div className="relative w-full overflow-hidden">
-              <div className="animate-infinite-scroll flex w-max py-2">
-                {certificates.map((cert, index) => (
-                  <CertificateCard key={`cert-${index}`} cert={cert} />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Badges Section - Scroll Right */}
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 bg-clip-text text-transparent text-center">
-              Achievement Badges
-            </h2>
-            <div className="relative w-full overflow-hidden">
-              <div className="animate-infinite-scroll-reverse flex w-max  py-2">
-                {badges.map((badge, index) => (
-                  <BadgeCard key={`badge-${index}`} badge={badge} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </RevealOnSroll>
-    </section>
-  );
-};
-
-// Certificate Card Component
-const CertificateCard = ({ cert }) => (
-  <div className="bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-xl p-5 hover:-translate-y-2 hover:shadow-[0_0px_30px_blue] transition-all duration-300 group w-75 flex-shrink-0 mx-3">
-    <div className="relative h-40 mb-4 overflow-hidden rounded-lg border border-blue-500/20">
+const CertCard = ({ cert }) => (
+  <div className="glass rounded-xl overflow-hidden group hover:border-indigo-500/40 transition-all duration-300 hover:-translate-y-1 w-56 flex-shrink-0 mx-2.5">
+    <div className="relative h-36 overflow-hidden">
       <img
         src={cert.image}
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200 "
         alt={cert.title}
-        onError={(e) => {
-          e.target.onerror = null;
-          e.target.src =
-            "https://via.placeholder.com/256?text=Certificate+Image";
-        }}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        onError={(e) => { e.target.src = "https://via.placeholder.com/224x144?text=Certificate"; }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-        <span className="text-blue-300 text-sm">ID: {cert.credentialId}</span>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#080714]/70 to-transparent" />
+    </div>
+    <div className="p-4">
+      <h3 className="text-sm font-bold text-white mb-1 leading-tight">{cert.title}</h3>
+      <div className="flex items-center justify-between mb-3">
+        <span className="text-indigo-400 text-xs font-medium">{cert.issuer}</span>
+        <span className="text-slate-500 text-xs">{cert.date}</span>
       </div>
-    </div>
-    <h3 className="text-lg font-bold text-blue-300 mb-1">{cert.title}</h3>
-    <div className="flex justify-between items-center text-sm">
-      <span className="text-blue-400">{cert.issuer}</span>
-      <span className="text-cyan-300">{cert.date}</span>
-    </div>
-    <a
-      href={cert.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="mt-3 w-full py-2 bg-blue-600/80 text-white rounded-lg hover:bg-blue-700 hover:shadow-[0_0_15px_rgba(59,130,246,0.6)] transition-all duration-300 flex items-center justify-center gap-1 text-sm"
-    >
-      Verify Credential
-      <svg
-        className="w-3 h-3"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
+      <a
+        href={cert.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-xs text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-        />
-      </svg>
-    </a>
+        Verify <FiExternalLink className="text-xs" />
+      </a>
+    </div>
   </div>
 );
 
-// Badge Card Component
 const BadgeCard = ({ badge }) => (
-  <div className="bg-[#0a081a]/70 backdrop-blur-sm border border-blue-500 rounded-full p-6 hover:-translate-y-2 hover:shadow-[0_10px_30px_blue] transition-all duration-300 group flex flex-col items-center w-64 flex-shrink-0 mx-4">
-    <div className="relative mb-4">
+  <div className="glass rounded-2xl p-5 group hover:border-indigo-500/40 transition-all duration-300 hover:-translate-y-1 w-52 flex-shrink-0 mx-2.5 flex flex-col items-center text-center">
+    <div className="relative mb-3">
+      <div className="absolute inset-0 rounded-full bg-indigo-500/20 blur-lg scale-110 opacity-0 group-hover:opacity-100 transition-opacity" />
       <img
         src={badge.image}
-        className="w-40 h-40 object-contain rounded-full border-2 border-blue-500 group-hover:border-blue-400 transition-all shadow-[0_0px_30px_blue]"
         alt={badge.title}
+        className="w-24 h-24 object-contain rounded-full border-2 border-indigo-500/40 group-hover:border-indigo-400 transition-colors relative z-10"
       />
     </div>
-    <h3 className="text-lg font-bold text-center text-blue-300 mb-1">
-      {badge.title}
-    </h3>
-    <p className="text-blue-100 text-sm text-center mb-3">{badge.issuer}</p>
+    <h3 className="text-sm font-bold text-white mb-1 leading-tight">{badge.title}</h3>
+    <p className="text-indigo-400 text-xs mb-3">{badge.issuer}</p>
     <a
       href={badge.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="px-4 py-2 bg-transparent border border-blue-500 text-blue-400 rounded-lg hover:bg-blue-500/20 hover:text-white hover:shadow-[0_0_10px_rgba(59,130,246,0.3)] transition-all duration-300 text-sm"
+      className="flex items-center gap-1 text-xs text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
     >
-      View Credentials
+      View Badge <FiExternalLink className="text-xs" />
     </a>
   </div>
 );
+
+const Certifications = () => {
+  const certs = [...certificateItems, ...certificateItems];
+  const badges = [...badgeItems, ...badgeItems];
+
+  return (
+    <section id="certifications" className="py-24 overflow-hidden relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-950/10 to-transparent pointer-events-none" />
+
+      <div className="relative max-w-6xl mx-auto px-5 sm:px-8">
+        <RevealOnSroll>
+          <div className="text-center mb-16">
+            <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">Credentials</p>
+            <h2 className="section-title grad-text mb-4">Certifications & Badges</h2>
+            <p className="text-slate-400 max-w-xl mx-auto text-base">
+              Verified credentials from leading platforms including AWS, Microsoft, Cisco, Udacity, and more.
+            </p>
+          </div>
+        </RevealOnSroll>
+
+        {/* Certificates scroll */}
+        <RevealOnSroll>
+          <div className="mb-14">
+            <h3 className="text-base font-semibold text-slate-300 mb-6 flex items-center gap-2">
+              <span className="w-1 h-4 bg-indigo-500 rounded-full" />
+              Certificates
+              <span className="text-slate-600 text-sm font-normal">({certificateItems.length} total)</span>
+            </h3>
+            <div className="relative overflow-hidden">
+              {/* Fade edges */}
+              <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#080714] to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#080714] to-transparent z-10 pointer-events-none" />
+              <div className="flex w-max animate-scroll-left py-2">
+                {certs.map((cert, i) => (
+                  <CertCard key={i} cert={cert} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </RevealOnSroll>
+
+        {/* Badges scroll */}
+        <RevealOnSroll>
+          <div>
+            <h3 className="text-base font-semibold text-slate-300 mb-6 flex items-center gap-2">
+              <span className="w-1 h-4 bg-purple-500 rounded-full" />
+              Achievement Badges
+              <span className="text-slate-600 text-sm font-normal">({badgeItems.length} total)</span>
+            </h3>
+            <div className="relative overflow-hidden">
+              <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#080714] to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#080714] to-transparent z-10 pointer-events-none" />
+              <div className="flex w-max animate-scroll-right py-2">
+                {badges.map((badge, i) => (
+                  <BadgeCard key={i} badge={badge} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </RevealOnSroll>
+
+        {/* All certs list */}
+        <RevealOnSroll>
+          <div className="mt-14 glass rounded-2xl p-6">
+            <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-5">All Achievements</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {[
+                { name: "HTML & CSS Basics", org: "Sololearn", link: "https://www.sololearn.com/certificates/CC-DP7VSLB4" },
+                { name: "Introduction to Python", org: "Sololearn", link: "https://www.sololearn.com/certificates/CC-BME39LYN" },
+                { name: "ML Foundations", org: "Amazon / Credly", link: "https://www.credly.com/badges/8180cb89-f07a-4901-bf22-d42ff978ec1c/public_url" },
+                { name: "Computer Hardware Basics", org: "Cisco / Credly", link: "https://www.credly.com/badges/e02be975-e3cb-4944-8075-480bbfe79df6/public_url" },
+                { name: "AI Agents Hackathon", org: "Microsoft / Credly", link: "https://www.credly.com/badges/edf431be-3f22-4cfb-a4ab-f97b440ea357/public_url" },
+                { name: "Intro to Cybersecurity", org: "Cisco / Credly", link: "https://www.credly.com/badges/64d77c47-313f-42d5-bbf6-7bfba8525afb/public_url" },
+                { name: "AWS Generative AI & ML", org: "Udacity / AWS", link: "https://www.udacity.com/certificate/e/fcb43cca-5000-11f0-b4f9-6f86a84deecc" },
+                { name: "Yeastar Certified Technician", org: "Yeastar", link: "https://ppfile-s3.yeastar.com/ppv3-resource/certificate/YSCT-PSE_CT37251110467_926.png" },
+                { name: "CompTIA A+", org: "Alison", link: "#" },
+              ].map((item) => (
+                <a
+                  key={item.name}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3 rounded-lg hover:bg-indigo-500/8 transition-colors group"
+                >
+                  <div>
+                    <p className="text-sm text-white font-medium group-hover:text-indigo-300 transition-colors">{item.name}</p>
+                    <p className="text-xs text-slate-500">{item.org}</p>
+                  </div>
+                  <FiExternalLink className="text-slate-600 group-hover:text-indigo-400 transition-colors flex-shrink-0" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </RevealOnSroll>
+      </div>
+    </section>
+  );
+};
 
 export default Certifications;

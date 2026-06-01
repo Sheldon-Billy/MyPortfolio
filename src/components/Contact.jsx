@@ -1,65 +1,61 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import RevealOnSroll from "./RevealOnSroll";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FiSend } from "react-icons/fi";
+
+const contactInfo = [
+  {
+    icon: <FaEnvelope className="text-indigo-400 text-lg" />,
+    label: "Email",
+    value: "Sheldonbilly0723@gmail.com",
+    href: "mailto:Sheldonbilly0723@gmail.com",
+  },
+  {
+    icon: <FaWhatsapp className="text-green-400 text-lg" />,
+    label: "WhatsApp",
+    value: "+254 757 161 754",
+    href: "https://wa.me/+254757161754",
+  },
+  {
+    icon: <FaMapMarkerAlt className="text-red-400 text-lg" />,
+    label: "Location",
+    value: "Nairobi, Kenya",
+    href: null,
+  },
+];
+
+const socialLinks = [
+  {
+    name: "GitHub",
+    url: "https://github.com/Sheldon-Billy",
+    icon: <FaGithub className="text-xl" />,
+    bg: "hover:bg-slate-700 hover:text-white",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/sheldon-billy-151b662b3/",
+    icon: <FaLinkedin className="text-xl" />,
+    bg: "hover:bg-blue-600 hover:text-white",
+  },
+  {
+    name: "WhatsApp",
+    url: "https://wa.me/+254757161754",
+    icon: <FaWhatsapp className="text-xl" />,
+    bg: "hover:bg-green-600 hover:text-white",
+  },
+  {
+    name: "Email",
+    url: "mailto:Sheldonbilly0723@gmail.com",
+    icon: <FaEnvelope className="text-xl" />,
+    bg: "hover:bg-red-600 hover:text-white",
+  },
+];
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const socialLinks = [
-    {
-      name: "GitHub",
-      url: "https://github.com/Sheldon-Billy",
-      icon: (
-        <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            fillRule="evenodd"
-            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.499.09.682-.217.682-.483 0-.237-.008-.865-.013-1.697-2.782.602-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.618.068-.606.068-.606 1.004.07 1.532 1.03 1.532 1.03.892 1.529 2.341 1.088 2.91.83.091-.645.352-1.088.639-1.338-2.22-.253-4.555-1.116-4.555-4.954 0-1.096.391-1.996 1.03-2.7-.104-.253-.447-1.275.097-2.668 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.393.202 2.415.097 2.668.64.704 1.026 1.604 1.026 2.7 0 3.847-2.339 4.695-4.566 4.942.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.579.688.481C21.137 20.19 24 16.425 24 12.017 24 6.484 19.522 2 14 2h-2z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-      color: "text-gray-400 hover:text-white",
-    },
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/sheldon-billy-151b662b3/",
-      icon: (
-        <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            fillRule="evenodd"
-            d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8.297 20.375h-2.92v-9.525h2.92v9.525zM6.83 9.47A1.674 1.674 0 015.155 7.72c.002-.924.764-1.674 1.676-1.674.912 0 1.652.75 1.674 1.674a1.674 1.674 0 01-1.675 1.75zM20.375 20.375h-2.918v-4.996c0-1.19-.023-2.722-1.657-2.722-1.658 0-1.914 1.29-1.914 2.637v5.081h-2.918v-9.525h2.793v1.282h.04c.387-.732 1.332-1.498 2.756-1.498C20.038 11.634 21 13.064 21 15.01v5.365z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-      color: "text-blue-500 hover:text-blue-400",
-    },
-    {
-      name: "WhatsApp",
-      url: "https://wa.me/+254757161754",
-      icon: (
-        <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12.04 2c-5.45 0-9.91 4.46-9.91 9.91 0 1.75.5 3.44 1.45 4.96L2 22l5.25-1.38c1.47.8 3.12 1.25 4.79 1.25 5.45 0 9.91-4.46 9.91-9.91S17.49 2 12.04 2zm0 18c-1.54 0-3-.42-4.29-1.18l-.3-.18-3.14.82.84-3.04-.2-.31c-.88-1.39-1.35-2.99-1.35-4.66 0-4.5 3.68-8.19 8.19-8.19s8.19 3.68 8.19 8.19c0 4.5-3.67 8.19-8.19 8.19zm4.56-6.16c-.25-.12-.8-.4-.92-.45-.12-.04-.26-.06-.37.04-.11.12-.42.45-.52.54-.1.1-.2.12-.37.04-.18-.06-.74-.27-1.42-.87-.52-.47-.87-1.05-.98-1.22-.11-.17-.01-.26.09-.35.09-.09.2-.25.3-.37.1-.12.14-.2.2-.31.06-.11.03-.2.01-.31-.02-.12-.37-.9-.52-1.22-.16-.31-.32-.26-.45-.26-.12 0-.25-.02-.37-.02-.12 0-.31.04-.48.2-.17.16-.65.64-.65 1.56 0 .92.67 1.8.76 1.94.09.14 1.34 2.06 3.25 2.89.43.19.77.3 1.04.39.29.1.56.08.77.05.21-.02.6-.25.69-.47.09-.23.09-.4.06-.47-.02-.07-.08-.12-.17-.16z" />
-        </svg>
-      ),
-      color: "text-green-500 hover:text-green-400",
-    },
-    {
-      name: "Email",
-      url: "mailto:Sheldonbilly0723@gmail.com",
-      icon: (
-        <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M22 4H2C0.89 4 0 4.89 0 6V18C0 19.11 0.89 20 2 20H22C23.11 20 24 19.11 24 18V6C24 4.89 23.11 4 22 4ZM20 6L12 11L4 6H20ZM2 18V6L12 13L22 6V18H2Z" />
-        </svg>
-      ),
-      color: "text-red-500 hover:text-red-400",
-    },
-  ];
+  const [status, setStatus] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -69,7 +65,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+    setStatus(null);
     try {
       await emailjs.sendForm(
         import.meta.env.VITE_SERVICE_ID,
@@ -77,110 +73,196 @@ const Contact = () => {
         e.target,
         import.meta.env.VITE_PUBLIC_KEY
       );
-      alert("Message sent successfully!");
+      setStatus("success");
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      alert("Oops! Something went wrong. Please try again.");
+    } catch {
+      setStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section
-      id="contact"
-      className="min-h-screen flex items-center justify-center py-20 px-4"
-    >
-      <RevealOnSroll>
-        <div className="w-full max-w-md md:max-w-2xl bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-blue-700 shadow-lg">
-          {/* Social Links Section -at the top */}
-          <div className="text-center">
-            <h2 className="text-3xl font-bold  bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Let's Connect
-            </h2>
-            <p className="text-gray-300 mb-5">
-              Feel free to reach out through any of these channels <br /> In
-              just One Click
+    <section id="contact" className="py-24 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-950/10 to-transparent pointer-events-none" />
+
+      <div className="relative max-w-6xl mx-auto px-5 sm:px-8">
+
+        {/* Header */}
+        <RevealOnSroll>
+          <div className="text-center mb-16">
+            <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">Let's talk</p>
+            <h2 className="section-title grad-text mb-4">Get In Touch</h2>
+            <p className="text-slate-400 max-w-xl mx-auto text-base leading-relaxed">
+              Have a project in mind, a job opportunity, or just want to say hi? I'd love to hear from you.
             </p>
+          </div>
+        </RevealOnSroll>
 
-            <div className="flex justify-center space-x-6 mb-5 ">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${link.color} transition-colors duration-300 p-2 rounded-full hover:bg-blue-800`}
-                  aria-label={link.name}
-                  title={link.name}
+        {/* Two equal columns */}
+        <div className="grid lg:grid-cols-2 gap-10 items-start">
+
+          {/* ── Left column ── */}
+          <RevealOnSroll>
+            <div className="space-y-6">
+
+              {/* Contact details card */}
+              <div className="glass rounded-2xl p-7">
+                <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                  <span className="w-1 h-5 bg-indigo-500 rounded-full" />
+                  Contact Details
+                </h3>
+                <div className="space-y-5">
+                  {contactInfo.map((item) => (
+                    <div key={item.label} className="flex items-center gap-4">
+                      <div className="w-11 h-11 glass rounded-xl flex items-center justify-center flex-shrink-0">
+                        {item.icon}
+                      </div>
+                      <div>
+                        <p className="text-xs text-slate-500 mb-0.5">{item.label}</p>
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            className="text-base text-white hover:text-indigo-300 transition-colors font-medium"
+                          >
+                            {item.value}
+                          </a>
+                        ) : (
+                          <p className="text-base text-white font-medium">{item.value}</p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Social links card */}
+              <div className="glass rounded-2xl p-7">
+                <h3 className="text-lg font-bold text-white mb-5 flex items-center gap-2">
+                  <span className="w-1 h-5 bg-indigo-500 rounded-full" />
+                  Find Me Online
+                </h3>
+                <div className="grid grid-cols-2 gap-3">
+                  {socialLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center gap-3 p-4 glass rounded-xl text-slate-300 font-medium transition-all duration-200 ${link.bg}`}
+                    >
+                      {link.icon}
+                      <span className="text-base">{link.name}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Availability badge */}
+              <div className="glass rounded-2xl p-5 border border-green-500/25">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse" />
+                  <span className="text-green-400 font-semibold">Available for Work</span>
+                </div>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Open to full-time roles, freelance projects, and collaborations.
+                  Response time: within 24 hours.
+                </p>
+              </div>
+
+            </div>
+          </RevealOnSroll>
+
+          {/* ── Right column — Form ── */}
+          <RevealOnSroll>
+            <div className="glass rounded-2xl p-7">
+              <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                <span className="w-1 h-5 bg-indigo-500 rounded-full" />
+                Send a Message
+              </h3>
+
+              {status === "success" && (
+                <div className="mb-5 p-4 rounded-xl bg-green-500/10 border border-green-500/30 text-green-300">
+                  ✅ Message sent! I'll get back to you soon.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="mb-5 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300">
+                  ❌ Something went wrong. Please try again or email me directly.
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Name + Email side by side */}
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm text-slate-400 mb-2 font-medium">Your Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="John Doe"
+                      required
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 text-base focus:outline-none focus:border-indigo-500/70 focus:bg-indigo-500/5 transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm text-slate-400 mb-2 font-medium">Email Address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="john@example.com"
+                      required
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 text-base focus:outline-none focus:border-indigo-500/70 focus:bg-indigo-500/5 transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-sm text-slate-400 mb-2 font-medium">Message</label>
+                  <textarea
+                    name="message"
+                    rows={7}
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell me about your project or opportunity..."
+                    required
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 text-base focus:outline-none focus:border-indigo-500/70 focus:bg-indigo-500/5 transition-all resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full btn-primary flex items-center justify-center gap-2 py-4 text-base ${
+                    isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
                 >
-                  {link.icon}
-                </a>
-              ))}
+                  {isSubmitting ? (
+                    <>
+                      <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <FiSend className="text-lg" />
+                      Send Message
+                    </>
+                  )}
+                </button>
+              </form>
             </div>
+          </RevealOnSroll>
 
-            <div className="relative mb-5">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-blue-700"></div>
-              </div>
-              <div className="relative flex justify-center">
-                <span className="px-4 bg-blue-700 rounded-full text-white text-sm p-2">
-                  OR
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form Section */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6 text-center text-white">
-              Send me a message
-            </h3>
-            <form className="space-y-5" onSubmit={handleSubmit}>
-              <div className="space-y-4">
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your Name"
-                  className="w-full bg-white/5 border border-blue-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Your Email"
-                  className="w-full bg-white/5 border border-blue-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                  required
-                />
-                <textarea
-                  name="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Your Message"
-                  className="w-full bg-white/5 border border-blue-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`w-full py-3 px-6 rounded-lg font-medium transition-all ${
-                  isSubmitting
-                    ? "bg-blue-600 cursor-not-allowed"
-                    : "bg-blue-500 hover:bg-blue-600 hover:shadow-lg"
-                } text-white`}
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </button>
-            </form>
-          </div>
         </div>
-      </RevealOnSroll>
+      </div>
     </section>
   );
 };

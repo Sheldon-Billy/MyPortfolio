@@ -1,98 +1,63 @@
-import React from "react";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope, FaCode } from "react-icons/fa";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
-  const socialLinks = [
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/sheldon-billy-151b662b3/",
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            fillRule="evenodd"
-            d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8.297 20.375h-2.92v-9.525h2.92v9.525zM6.83 9.47A1.674 1.674 0 015.155 7.72c.002-.924.764-1.674 1.676-1.674.912 0 1.652.75 1.674 1.674a1.674 1.674 0 01-1.675 1.75zM20.375 20.375h-2.918v-4.996c0-1.19-.023-2.722-1.657-2.722-1.658 0-1.914 1.29-1.914 2.637v5.081h-2.918v-9.525h2.793v1.282h.04c.387-.732 1.332-1.498 2.756-1.498C20.038 11.634 21 13.064 21 15.01v5.365z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-    },
-    {
-      name: "GitHub",
-      url: "https://github.com/Sheldon-Billy",
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            fillRule="evenodd"
-            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.499.09.682-.217.682-.483 0-.237-.008-.865-.013-1.697-2.782.602-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.618.068-.606.068-.606 1.004.07 1.532 1.03 1.532 1.03.892 1.529 2.341 1.088 2.91.83.091-.645.352-1.088.639-1.338-2.22-.253-4.555-1.116-4.555-4.954 0-1.096.391-1.996 1.03-2.7-.104-.253-.447-1.275.097-2.668 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.393.202 2.415.097 2.668.64.704 1.026 1.604 1.026 2.7 0 3.847-2.339 4.695-4.566 4.942.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.579.688.481C21.137 20.19 24 16.425 24 12.017 24 6.484 19.522 2 14 2h-2z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-    },
-    {
-      name: "Email",
-      url: "mailto:Sheldonbilly0723@gmail.com",
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M22 4H2C0.89 4 0 4.89 0 6V18C0 19.11 0.89 20 2 20H22C23.11 20 24 19.11 24 18V6C24 4.89 23.11 4 22 4ZM20 6L12 11L4 6H20ZM2 18V6L12 13L22 6V18H2Z" />
-        </svg>
-      ),
-    },
-    {
-      name: "WhatsApp",
-      url: "https://wa.me/+254757161754",
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12.04 2c-5.45 0-9.91 4.46-9.91 9.91 0 1.75.5 3.44 1.45 4.96L2 22l5.25-1.38c1.47.8 3.12 1.25 4.79 1.25 5.45 0 9.91-4.46 9.91-9.91S17.49 2 12.04 2zm0 18c-1.54 0-3-.42-4.29-1.18l-.3-.18-3.14.82.84-3.04-.2-.31c-.88-1.39-1.35-2.99-1.35-4.66 0-4.5 3.68-8.19 8.19-8.19s8.19 3.68 8.19 8.19c0 4.5-3.67 8.19-8.19 8.19zm4.56-6.16c-.25-.12-.8-.4-.92-.45-.12-.04-.26-.06-.37.04-.11.12-.42.45-.52.54-.1.1-.2.12-.37.04-.18-.06-.74-.27-1.42-.87-.52-.47-.87-1.05-.98-1.22-.11-.17-.01-.26.09-.35.09-.09.2-.25.3-.37.1-.12.14-.2.2-.31.06-.11.03-.2.01-.31-.02-.12-.37-.9-.52-1.22-.16-.31-.32-.26-.45-.26-.12 0-.25-.02-.37-.02-.12 0-.31.04-.48.2-.17.16-.65.64-.65 1.56 0 .92.67 1.8.76 1.94.09.14 1.34 2.06 3.25 2.89.43.19.77.3 1.04.39.29.1.56.08.77.05.21-.02.6-.25.69-.47.09-.23.09-.4.06-.47-.02-.07-.08-.12-.17-.16z" />
-        </svg>
-      ),
-    },
+  const navLinks = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
+    { label: "Certifications", href: "#certifications" },
+    { label: "Testimonials", href: "#testimonials" },
+    { label: "Contact", href: "#contact" },
   ];
 
-  const quickLinks = [
-    { name: "Home", url: "#home" },
-    { name: "About", url: "#about" },
-    { name: "Projects", url: "#projects" },
-    { name: "Certifications", url: "#certifications" },
-    { name: "Reviews", url: "#Reviews" },
-    { name: "Contact", url: "#contact" },
+  const socials = [
+    { icon: <FaGithub />, url: "https://github.com/Sheldon-Billy", label: "GitHub" },
+    { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/sheldon-billy-151b662b3/", label: "LinkedIn" },
+    { icon: <FaWhatsapp />, url: "https://wa.me/+254757161754", label: "WhatsApp" },
+    { icon: <FaEnvelope />, url: "mailto:Sheldonbilly0723@gmail.com", label: "Email" },
   ];
 
   const techStack = [
     { name: "React", url: "https://react.dev" },
+    { name: "Next.js", url: "https://nextjs.org" },
     { name: "Tailwind CSS", url: "https://tailwindcss.com" },
-    { name: "Node.js", url: "https://nodejs.org" },
-    { name: "TypeScript", url: "https://www.typescriptlang.org" },
-    { name: "MongoDB", url: "https://www.mongodb.com" },
-    { name: "Express", url: "https://expressjs.com" },
-    { name: "PostgreSQL", url: "https://www.postgresql.org" },
     { name: "FastAPI", url: "https://fastapi.tiangolo.com" },
-    { name: "Airgeddon", url: "https://github.com/v1s1t0r1sh3r3/airgeddon" },
-    { name: "Kali Linux", url: "https://www.kali.org" },
-    { name: "Metasploit", url: "https://www.metasploit.com" },
-    { name: "Wireshark", url: "https://www.wireshark.org" },
-    { name: "Nmap", url: "https://nmap.org" },
+    { name: "Django", url: "https://www.djangoproject.com" },
+    { name: "PostgreSQL", url: "https://www.postgresql.org" },
+    { name: "MongoDB", url: "https://www.mongodb.com" },
+    { name: "TensorFlow", url: "https://www.tensorflow.org" },
+    { name: "Azure OpenAI", url: "https://azure.microsoft.com/en-us/products/ai-services/openai-service" },
+    { name: "LangChain", url: "https://www.langchain.com" },
   ];
 
   return (
-    <footer className="bg-[#010111] text-white pt-12 pb-6">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8">
-          {/* About Section */}
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex space-x-4">
-              {socialLinks.map((link) => (
+    <footer className="border-t border-white/5 bg-[#050411]">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+          {/* Brand */}
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                <FaCode className="text-white text-sm" />
+              </div>
+              <span className="font-bold text-white">Sheldon<span className="text-indigo-400">.dev</span></span>
+            </div>
+            <p className="text-slate-500 text-sm leading-relaxed mb-5 max-w-xs">
+              Full-Stack Developer & AI Specialist based in Nairobi, Kenya. Building intelligent, scalable digital solutions.
+            </p>
+            <div className="flex gap-3">
+              {socials.map((s) => (
                 <a
-                  key={link.name}
-                  href={link.url}
+                  key={s.label}
+                  href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-y-1 p-2 rounded-full bg-blue-800 hover:bg-[green]"
-                  aria-label={link.name}
-                  title={link.name}
+                  aria-label={s.label}
+                  className="w-9 h-9 glass rounded-lg flex items-center justify-center text-slate-400 hover:text-indigo-300 hover:border-indigo-500/50 transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  {link.icon}
+                  {s.icon}
                 </a>
               ))}
             </div>
@@ -100,17 +65,16 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-blue-300">
-              Quick Links
-            </h3>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
+            <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-5">Navigation</h3>
+            <ul className="space-y-2.5">
+              {navLinks.map((link) => (
+                <li key={link.label}>
                   <a
-                    href={link.url}
-                    className="text-blue-100 hover:text-blue-700 transition-colors duration-100 hover:underline"
+                    href={link.href}
+                    className="text-slate-500 hover:text-indigo-300 text-sm transition-colors duration-200 flex items-center gap-1.5 group"
                   >
-                    {link.name}
+                    <span className="w-0 group-hover:w-3 h-px bg-indigo-500 transition-all duration-200" />
+                    {link.label}
                   </a>
                 </li>
               ))}
@@ -119,7 +83,7 @@ const Footer = () => {
 
           {/* Tech Stack */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-blue-300">Tech Stack</h3>
+            <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-5">Tech Stack</h3>
             <div className="flex flex-wrap gap-2">
               {techStack.map((tech) => (
                 <a
@@ -127,7 +91,7 @@ const Footer = () => {
                   href={tech.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1 bg-blue-800 text-blue-100 rounded-full text-sm hover:bg-white hover:text-black transition-colors duration-300"
+                  className="skill-pill text-xs hover:no-underline"
                 >
                   {tech.name}
                 </a>
@@ -136,41 +100,19 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-blue-800 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-blue-200 text-sm mb-4 md:mb-0">
-              &copy; {currentYear} Okoth Sheldon Billy. All rights reserved.
-            </p>
-            <div className="text-blue-300 text-sm">
-              <span>Built with </span>
-              <a
-                href="https://react.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#02ff02] underline hover:text-white hover:underline transition-colors duration-300"
-              >
-                React
-              </a>
-              <span> and </span>
-              <a
-                href="https://tailwindcss.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#02ff02] underline hover:text-white hover:underline transition-colors duration-300"
-              >
-                Tailwind CSS
-              </a>
-              <span> | Deployed on </span>
-              <a
-                href="https://vercel.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#02ff02] underline hover:text-white hover:underline transition-colors duration-300"
-              >
-                Vercel
-              </a>
-            </div>
-          </div>
+        {/* Bottom bar */}
+        <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-slate-600 text-sm">
+            © {year} Okoth Sheldon Billy. All rights reserved.
+          </p>
+          <p className="text-slate-600 text-sm">
+            Built with{" "}
+            <a href="https://react.dev" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 transition-colors">React</a>
+            {" "}+{" "}
+            <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 transition-colors">Tailwind</a>
+            {" "}· Deployed on{" "}
+            <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 transition-colors">Vercel</a>
+          </p>
         </div>
       </div>
     </footer>

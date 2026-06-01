@@ -1,204 +1,345 @@
+import { useEffect, useRef, useState } from "react";
 import RevealOnSroll from "./RevealOnSroll";
-import { down } from "../assets/Pics";
-import Sheldon from "../assets/Sheldon.jpeg";
+import Sheldon from "../assets/sheldon.png";
+import CV from "../assets/CV.pdf";
+import { SpeqlinkLogo } from "../assets/Pics";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaDownload } from "react-icons/fa";
+import { HiArrowDown, HiArrowRight } from "react-icons/hi";
 
-const Home = () => {
+/* ── Animated star field ── */
+const StarField = () => {
+  const stars = useRef(
+    Array.from({ length: 120 }, () => ({
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 2 + 0.5,
+      delay: Math.random() * 6,
+      duration: Math.random() * 4 + 3,
+      opacity: Math.random() * 0.5 + 0.1,
+    }))
+  );
   return (
-    <section
-      id="home"
-      className="min-h-screen flex flex-col overflow-hidden relative"
-    >
-      {/* Subtle animated particles in the background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        {/* Large floating particles */}
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={`large-${i}`}
-            className="absolute rounded-full"
-            style={{
-              width: `${Math.random() * 10 + 5}px`,
-              height: `${Math.random() * 10 + 5}px`,
-              background: `rgba(100, 200, 255, ${Math.random() * 0.3 + 0.1})`,
-              top: `${Math.random() * 100}vh`,
-              left: `${Math.random() * 100}vw`,
-              animation: `float ${Math.random() * 20 + 50}s linear infinite`,
-              filter: 'blur(1.5px)',
-            }}
-          />
-        ))}
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      {stars.current.map((s, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full bg-white"
+          style={{
+            width: s.size,
+            height: s.size,
+            top: `${s.y}%`,
+            left: `${s.x}%`,
+            opacity: s.opacity,
+            animation: `twinkle ${s.duration}s ease-in-out ${s.delay}s infinite`,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
 
-        {/* Small twinkling particles */}
-        {[...Array(150)].map((_, i) => (
-          <div
-            key={`small-${i}`}
-            className="absolute rounded-full"
-            style={{
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
-              background: 'white',
-              top: `${Math.random() * 100}vh`,
-              left: `${Math.random() * 100}vw`,
-              animation: `pulse ${Math.random() * 4 + 2}s ease-in-out infinite`,
-              opacity: 0,
-            }}
-          />
-        ))}
-      </div>
+/* ── Typing role switcher ── */
+const roles = [
+  "Full-Stack Developer",
+  "AI / ML Engineer",
+  "COO @ Speqlink",
+  "Mobile Developer",
+  "Cybersecurity Enthusiast",
+];
 
-      <RevealOnSroll>
-        <div className="relative w-full h-screen  md:px-8 lg:px-16 pt-5 md:pt-0">
-          {/* Mobile layout - stacked */}
-          <div className="md:hidden flex flex-col items-center pt-12">
-            {/* Profile image */}
-            <div className="w-40 h-40 mb-5 relative group ">
-              <img
-                src={Sheldon}
-                alt="Sheldon Billy"
-                className="w-full h-full rounded-full object-cover border-2 border-blue-500 "
-              />
-            </div>
+const useTyping = () => {
+  const roleRef = useRef(null);
+  const roleIndex = useRef(0);
+  const charIndex = useRef(0);
+  const deleting = useRef(false);
 
-            {/* Content */}
-            <h1 className="bg-gradient-to-r from-blue-600 via-blue-200 to-blue-800 text-transparent bg-clip-text font-extrabold text-[29px] mb-2 font-serif text-center">
-              Hi, I'm Sheldon Billy.
-            </h1>
+  useEffect(() => {
+    let timeout;
+    const tick = () => {
+      const current = roles[roleIndex.current];
+      if (!deleting.current) {
+        charIndex.current++;
+        if (roleRef.current) roleRef.current.textContent = current.slice(0, charIndex.current);
+        if (charIndex.current === current.length) {
+          deleting.current = true;
+          timeout = setTimeout(tick, 2000);
+          return;
+        }
+      } else {
+        charIndex.current--;
+        if (roleRef.current) roleRef.current.textContent = current.slice(0, charIndex.current);
+        if (charIndex.current === 0) {
+          deleting.current = false;
+          roleIndex.current = (roleIndex.current + 1) % roles.length;
+        }
+      }
+      timeout = setTimeout(tick, deleting.current ? 40 : 75);
+    };
+    timeout = setTimeout(tick, 800);
+    return () => clearTimeout(timeout);
+  }, []);
 
-            {/* For mobile */}
-            <div className="md:hidden ">
-              <p className="text-sm text-blue-100 leading-relaxed mb-7 text-center font-serif">
-                I'm a full-stack developer, cybersecurity enthusiast and a passionate AI/ML Scientist.
-                I specialize in crafting secure 🔒, intelligent interfaces with React JS, Tailwind CSS, and JavaScript. My expertise bridges frontend magic ✨,
-                AI-powered backend systems (Django AI/ML + Express JS),
-                secure data orchestration 💾 (PostgreSQL/MongoDB), and robust cyber defenses 🛡️.
-                I build systems that don't just work – they learn 🔍, adapt 🔄, and protect 🔐.
-              </p>
-            </div>
+  return roleRef;
+};
 
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <a
-                href="#projects"
-                className="relative bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-blue-500/30 group"
-              >
-                <span className="relative z-10">View My Projects</span>
+/* ── Animated counter ── */
+const Counter = ({ target, suffix = "" }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const started = useRef(false);
 
-              </a>
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started.current) {
+        started.current = true;
+        let start = 0;
+        const step = Math.ceil(target / 40);
+        const timer = setInterval(() => {
+          start += step;
+          if (start >= target) { setCount(target); clearInterval(timer); }
+          else setCount(start);
+        }, 40);
+      }
+    }, { threshold: 0.5 });
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [target]);
 
-              <a
-                href="#contact"
-                className="relative border-2 border-blue-500 text-blue-400 hover:text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-blue-500/20 group overflow-hidden"
-              >
-                <span className="relative z-10">Contact Me</span>
+  return <span ref={ref}>{count}{suffix}</span>;
+};
 
-              </a>
-            </div>
-          </div>
+/* ── Tech stack marquee ── */
+const techStack = [
+  "React JS", "Next.js", "FastAPI", "Django", "TensorFlow",
+  "LangChain", "Azure OpenAI", "PostgreSQL", "MongoDB",
+  "Python", "TypeScript", "Docker", "AWS", "Tailwind CSS",
+];
 
+const TechMarquee = () => (
+  <div className="relative overflow-hidden py-3">
+    <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#080714] to-transparent z-10 pointer-events-none" />
+    <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#080714] to-transparent z-10 pointer-events-none" />
+    <div className="flex w-max animate-scroll-left gap-3">
+      {[...techStack, ...techStack].map((t, i) => (
+        <span
+          key={i}
+          className="px-4 py-1.5 glass rounded-full text-sm text-slate-400 border border-white/8 whitespace-nowrap flex-shrink-0"
+        >
+          {t}
+        </span>
+      ))}
+    </div>
+  </div>
+);
 
-          {/* Desktop layout - original positioning */}
-          <div className="hidden md:block relative h-full">
-            {/* Profile image with original positioning */}
-            <div className="absolute left-17 top-40 w-48 h-80">
-              <img
-                src={Sheldon}
-                alt="Sheldon Billy"
-                className="size-80 rounded-[30px] object-cover border-2 border-blue-500 shadow-lg transition-all duration-500 ease-in-out group-hover:shadow-[0_0_20px_#3b82f6]"
-              />
-              <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-blue-300 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out -z-10 animate-ping-slow" />
-            </div>
+/* ── Main component ── */
+const Home = () => {
+  const roleRef = useTyping();
 
-            {/* Original text positioning */}
+  const stats = [
+    { value: 3,  suffix: "+", label: "Years Coding" },
+    { value: 20, suffix: "+", label: "Systems Shipped" },
+    { value: 9,  suffix: "+", label: "Certifications" },
+    { value: 3,  suffix: "",  label: "Companies" },
+  ];
+
+  const socials = [
+    { icon: <FaGithub />,   url: "https://github.com/Sheldon-Billy",                          label: "GitHub" },
+    { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/sheldon-billy-151b662b3/",       label: "LinkedIn" },
+    { icon: <FaWhatsapp />, url: "https://wa.me/+254757161754",                                label: "WhatsApp" },
+  ];
+
+  return (
+    <section id="home" className="relative min-h-screen flex flex-col overflow-hidden">
+      <StarField />
+
+      {/* ── Background orbs ── */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-indigo-700/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-700/8 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-blue-700/6 rounded-full blur-[80px] pointer-events-none" />
+
+      {/* ── Grid lines overlay ── */}
+      <div
+        className="absolute inset-0 pointer-events-none z-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(99,102,241,1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(99,102,241,1) 1px, transparent 1px)
+          `,
+          backgroundSize: "80px 80px",
+        }}
+      />
+
+      {/* ── Main content ── */}
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 pt-28 pb-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* ── LEFT: Text ── */}
             <div>
-              <h1 className="absolute top-40 left-70 bg-gradient-to-r from-blue-600 via-blue-200 to-blue-800 text-transparent bg-clip-text font-extrabold text-5xl mb-5 font-serif">
-                Hi, I'm Sheldon Billy.
+              {/* Available badge */}
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass border border-green-500/25 text-sm font-medium text-green-300 mb-8">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400" />
+                </span>
+                Available for opportunities
+              </div>
+
+              {/* Name */}
+              <h1 className="font-extrabold text-white leading-[1.05] tracking-tight mb-5"
+                  style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.2rem)" }}>
+                Hi, I'm{" "}
+                <span className="relative inline-block">
+                  <span className="grad-text">Sheldon Billy</span>
+                  {/* Underline glow */}
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-transparent rounded-full" />
+                </span>
               </h1>
-            </div>
 
-            {/* For desktop - with original positioning */}
-            <div className="hidden md:block">
-              <p className="absolute top-60 left-70 w-lg text-lg text-blue-100 leading-relaxed">
-                I'm a full-stack developer, cybersecurity enthusiast and a passionate AI/ML Scientist.
-                I specialize in crafting secure, intelligent interfaces with React JS, Tailwind CSS, and JavaScript. My expertise bridges frontend magic ✨,
-                AI-powered backend systems (Django AI/ML + Express JS),
-                secure data orchestration 💾(PostgreSQL/MongoDB), and robust cyber defenses 🛡️.
-                I build systems that don't just work – they learn 🔍, adapt 🔄, and protect 🔐.
+              {/* Typing role */}
+              <div className="flex items-center gap-2 mb-6" style={{ minHeight: "2.5rem" }}>
+                <span className="text-2xl sm:text-3xl font-bold text-indigo-300" ref={roleRef} />
+                <span className="animate-blink text-indigo-400 text-3xl font-light">|</span>
+              </div>
+
+              {/* Bio */}
+              <p className="text-slate-400 text-lg leading-relaxed mb-8 max-w-xl">
+                Full-Stack Developer, AI Specialist & Co-Founder of{" "}
+                <a
+                  href="https://www.speqlink.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-300 hover:text-white font-semibold transition-colors inline-flex items-center gap-1"
+                >
+                  Speqlink
+                  <span className="text-xs">↗</span>
+                </a>
+                {" "}— engineering intelligent software ecosystems and AI-powered solutions for Africa's future, based in Nairobi, Kenya.
               </p>
+
+              {/* CTA row */}
+              <div className="flex flex-wrap gap-4 mb-10">
+                <a href="#projects" className="btn-primary inline-flex items-center gap-2 group">
+                  View My Work
+                  <HiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a
+                  href={CV}
+                  download="Sheldon_Billy_CV.pdf"
+                  className="btn-outline inline-flex items-center gap-2"
+                >
+                  <FaDownload className="text-sm" />
+                  Download CV
+                </a>
+              </div>
+
+              {/* Socials */}
+              <div className="flex items-center gap-4">
+                <span className="text-slate-600 text-sm">Connect</span>
+                <div className="w-8 h-px bg-slate-700" />
+                {socials.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="w-10 h-10 glass rounded-xl flex items-center justify-center text-slate-400 hover:text-indigo-300 hover:border-indigo-500/50 transition-all duration-200 hover:-translate-y-1 text-lg"
+                  >
+                    {s.icon}
+                  </a>
+                ))}
+              </div>
             </div>
 
-            <div className="absolute bottom-30 left-130 flex gap-4">
-              <a
-                href="#projects"
-                className="relative bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-blue-500/30 group"
-              >
-                <span className="relative z-10">View My Projects</span>
-              </a>
+            {/* ── RIGHT: Photo + cards ── */}
+            <div className="flex flex-col items-center gap-6">
 
-              <a
-                href="#contact"
-                className="relative border-2 border-blue-500 text-blue-400 hover:text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-blue-500/20 group overflow-hidden"
-              >
-                <span className="relative z-10">Contact Me</span>
-                <span className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300 -z-10" />
-                <span className="absolute inset-0 border-2 border-transparent group-hover:border-blue-300 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-lg -z-20" />
-              </a>
+              {/* Photo with layered glow rings */}
+              <div className="relative">
+                {/* Outer spinning ring */}
+                <div
+                  className="absolute inset-0 rounded-3xl opacity-20"
+                  style={{
+                    background: "conic-gradient(from 0deg, #6366f1, #8b5cf6, #06b6d4, #6366f1)",
+                    animation: "spin-slow 8s linear infinite",
+                    padding: "2px",
+                    borderRadius: "1.5rem",
+                  }}
+                />
+                {/* Glow blob */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-indigo-600/25 to-purple-600/20 rounded-3xl blur-2xl" />
+
+                {/* Photo frame */}
+                <div className="relative w-72 h-80 sm:w-80 sm:h-96 rounded-3xl overflow-hidden border border-indigo-500/30 shadow-2xl">
+                  <img
+                    src={Sheldon}
+                    alt="Sheldon Billy"
+                    className="w-full h-full object-cover object-top"
+                  />
+                  {/* Bottom gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#080714]/70 via-transparent to-transparent" />
+
+                  {/* Name tag overlay */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="glass rounded-xl px-4 py-2.5 border border-white/10">
+                      <p className="text-white font-bold text-sm">Okoth Sheldon Billy</p>
+                      <p className="text-indigo-300 text-xs">COO · Speqlink &nbsp;·&nbsp; 🇰🇪 Nairobi</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Speqlink badge */}
+                <div className="absolute -top-4 -right-4 glass rounded-2xl px-3 py-2.5 border border-indigo-500/30 shadow-xl flex items-center gap-2">
+                  <img src={SpeqlinkLogo} alt="Speqlink" className="h-5 object-contain" />
+                  <div>
+                    <p className="text-white text-xs font-bold leading-tight">Co-Founder</p>
+                    <p className="text-indigo-400 text-[10px]">speqlink.com</p>
+                  </div>
+                </div>
+
+                {/* Floating AI badge */}
+                <div className="absolute -bottom-4 -left-4 glass rounded-2xl px-3 py-2.5 border border-purple-500/30 shadow-xl">
+                  <p className="text-purple-300 text-xs font-bold">🧠 AI Specialist</p>
+                  <p className="text-slate-500 text-[10px]">LangChain · Azure OpenAI</p>
+                </div>
+              </div>
+
+              {/* Stats row */}
+              <div className="grid grid-cols-4 gap-3 w-full max-w-sm mt-4">
+                {stats.map((s) => (
+                  <div
+                    key={s.label}
+                    className="glass rounded-2xl p-3 text-center border border-indigo-500/15 hover:border-indigo-500/40 transition-colors group"
+                  >
+                    <div className="text-2xl font-extrabold grad-text">
+                      <Counter target={s.value} suffix={s.suffix} />
+                    </div>
+                    <div className="text-xs text-slate-500 mt-1 leading-tight group-hover:text-slate-400 transition-colors">
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Original Quick Access buttons */}
-            <div className='absolute top-37 right-24 flex flex-col'>
-              <h1 className='absolute right-15 w-40 font-extrabold text-blue-300'>Quick Access</h1>
-
-              <button className='absolute right-15 top-10 border-2 border-blue-400 rounded-xl px-4 py-2 w-50 text-blue-100 font-medium shadow-[0_0_15px_#3b82f6] hover:shadow-[0_0_25px_#3b82f6] hover:text-white hover:border-blue-300 transition-all duration-150 bg-[#0a081a]/80 ackdrop-blur-sm hover:scale-110 hover:rotate-1 cursor-pointer group'>
-                <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
-                  <a href="#projects">  My Projects</a>
-                </span>
-              </button>
-
-              <button className='absolute right-10 top-20 border-2 border-blue-400 rounded-xl px-4 py-2 w-50 text-blue-100 font-medium shadow-[0_0_15px_#3b82f6] hover:shadow-[0_0_25px_#3b82f6] hover:text-white hover:border-blue-300 transition-all duration-150 bg-[#0a081a]/80 backdrop-blur-sm hover:scale-110 hover:rotate-1 cursor-pointer group'>
-                <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
-                  <a href="#certifications"> My Certificates</a>
-                </span>
-              </button>
-
-              <button className='absolute right-5 top-30 border-2 border-blue-400 rounded-xl px-4 py-2 w-50 text-blue-100 font-medium shadow-[0_0_15px_#3b82f6] hover:shadow-[0_0_25px_#3b82f6] hover:text-white hover:border-blue-300 transition-all duration-150 bg-[#0a081a]/80 backdrop-blur-sm hover:scale-110 hover:rotate-1 cursor-pointer group'>
-                <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
-                  <a href="#certifications">My Badges</a>
-                </span>
-              </button>
-
-              <button className='absolute right-0 top-40 border-2 border-blue-400 rounded-xl px-4 py-2 w-50 text-blue-100 font-medium shadow-[0_0_15px_#3b82f6] hover:shadow-[0_0_25px_#3b82f6] hover:text-white hover:border-blue-300 transition-all duration-150 bg-[#0a081a]/80 backdrop-blur-sm hover:scale-110 hover:rotate-1 cursor-pointer group'>
-                <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
-                  <a href="#about">More about Me</a>
-                </span>
-              </button>
-
-              <button className='absolute right-5 top-50 border-2 border-blue-400 rounded-xl px-4 py-2 w-50 text-blue-100 font-medium shadow-[0_0_15px_#3b82f6] hover:shadow-[0_0_25px_#3b82f6] hover:text-white hover:border-blue-300 transition-all duration-150 bg-[#0a081a]/80 backdrop-blur-sm hover:scale-110 hover:rotate-1 cursor-pointer group'>
-                <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
-                  <a href="#contact">Connect Me</a>
-                </span>
-              </button>
-
-              <button className='absolute right-10 top-60 border-2 border-blue-400 rounded-xl px-4 py-2 w-50 text-blue-100 font-medium shadow-[0_0_15px_#3b82f6] hover:shadow-[0_0_25px_#3b82f6] hover:text-white hover:border-blue-300 transition-all duration-150 bg-[#0a081a]/80 backdrop-blur-sm hover:scale-110 hover:rotate-1 cursor-pointer group'>
-                <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
-                  <a href="#contact">Support Me</a>
-                </span>
-              </button>
-
-              <button className='absolute right-15 top-70 border-2 border-blue-400 rounded-xl px-4 py-2 w-50 text-blue-100 font-medium shadow-[0_0_15px_#3b82f6] hover:shadow-[0_0_25px_#3b82f6] hover:text-white hover:border-blue-300 transition-all duration-150 bg-[#0a081a]/80 backdrop-blur-sm hover:scale-110 hover:rotate-1 cursor-pointer group'>
-                <span className='group-hover:text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200'>
-                  <a href="#testimonials"> Reviews</a>
-                </span>
-              </button>
-            </div>
           </div>
         </div>
-      </RevealOnSroll>
+      </div>
 
-      {/* Scroll down indicator */}
-      <div className="mt-10 z-10 absolute bottom-8 left-1/2 transform -translate-x-1/2 md:bottom-0 md:left-180 md:transform-none">
-        <img
-          src={down}
-          alt="Scroll down"
-          className="h-12 w-12 md:h-16 md:w-16 animate-bounce opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
-        />
+      {/* ── Tech stack marquee ── */}
+      <div className="relative z-10 w-full pb-6">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 mb-3">
+          <p className="text-slate-600 text-xs uppercase tracking-widest font-medium">Tech I work with</p>
+        </div>
+        <TechMarquee />
+      </div>
+
+      {/* ── Scroll indicator ── */}
+      <div className="relative z-10 flex flex-col items-center pb-8 gap-1 text-slate-600">
+        <span className="text-xs uppercase tracking-widest">Scroll</span>
+        <HiArrowDown className="animate-bounce text-indigo-500 text-lg" />
       </div>
     </section>
   );
