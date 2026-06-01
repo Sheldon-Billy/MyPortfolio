@@ -256,20 +256,10 @@ const Home = () => {
             {/* ── RIGHT: Photo + cards ── */}
             <div className="flex flex-col items-center gap-6">
 
-              {/* Photo with layered glow rings */}
+              {/* Photo */}
               <div className="relative">
-                {/* Outer spinning ring */}
-                <div
-                  className="absolute inset-0 rounded-3xl opacity-20"
-                  style={{
-                    background: "conic-gradient(from 0deg, #6366f1, #8b5cf6, #06b6d4, #6366f1)",
-                    animation: "spin-slow 8s linear infinite",
-                    padding: "2px",
-                    borderRadius: "1.5rem",
-                  }}
-                />
                 {/* Glow blob */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-indigo-600/25 to-purple-600/20 rounded-3xl blur-2xl" />
+                <div className="absolute -inset-4 bg-gradient-to-br from-indigo-600/20 to-purple-600/15 rounded-3xl blur-2xl pointer-events-none" />
 
                 {/* Photo frame */}
                 <div className="relative w-72 h-80 sm:w-80 sm:h-96 rounded-3xl overflow-hidden border border-indigo-500/30 shadow-2xl">
@@ -290,19 +280,13 @@ const Home = () => {
                   </div>
                 </div>
 
-                {/* Floating Speqlink badge */}
-                <div className="absolute -top-4 -right-4 glass rounded-2xl px-3 py-2.5 border border-indigo-500/30 shadow-xl flex items-center gap-2">
+                {/* Speqlink badge — top right, clear of the frame */}
+                <div className="absolute -top-3 -right-3 glass rounded-2xl px-3 py-2.5 border border-indigo-500/30 shadow-xl flex items-center gap-2 z-10">
                   <img src={SpeqlinkLogo} alt="Speqlink" className="h-5 object-contain" />
                   <div>
                     <p className="text-white text-xs font-bold leading-tight">Co-Founder</p>
                     <p className="text-indigo-400 text-[10px]">speqlink.com</p>
                   </div>
-                </div>
-
-                {/* Floating AI badge */}
-                <div className="absolute -bottom-4 -left-4 glass rounded-2xl px-3 py-2.5 border border-purple-500/30 shadow-xl">
-                  <p className="text-purple-300 text-xs font-bold">🧠 AI Specialist</p>
-                  <p className="text-slate-500 text-[10px]">LangChain · Azure OpenAI</p>
                 </div>
               </div>
 
